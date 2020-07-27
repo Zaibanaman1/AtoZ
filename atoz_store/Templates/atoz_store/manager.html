@@ -1,0 +1,39 @@
+{% extends 'atoz_store/main.html' %}
+{% load static %}
+{% block content %}
+<table  class="table table-striped table-sm">
+    <thead>
+      <tr>
+        <th  scope="col">ordernumber</th>
+        <th scope="col">customername</th>
+        <th scope="col">phone_no</th>
+        <th scope="col">transaction_id</th>
+        <th scope="col">odered items</th>
+        <th scope="col">adress</th>
+        <th scope="col">date_ordered</th>
+        <th scope="col">total</th>
+      </tr>
+    </thead>
+    
+    <tbody>
+      <tr>
+       
+      </tr>
+      {% for mdr in managerda %}
+      <tr>
+        <td>{{mdr.Orderm}}</td>
+        <td>{{mdr.namem}}</td>
+        <td>{{mdr.phonem}}</td>
+        <td>{{mdr.trans_id}}</td>
+        <td>{{mdr.productm}}</td>
+        <td><textarea name="" id="" cols="20" rows="5">{{mdr.adressm}}</textarea></td>
+        <td>{{mdr.date}}</td>
+        <td>{{mdr.totalm}}</td>
+      </tr>
+      {% endfor %}
+   
+
+    </tbody>
+   
+  </table>
+{% endblock content%}
