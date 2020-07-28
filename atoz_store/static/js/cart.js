@@ -4,10 +4,11 @@ for(var i=0; i<updateBtns.length;i++){
     updateBtns[i].addEventListener('click',function(){
     var productId = this.dataset.product
     var action = this.dataset.action
+    var flagu = this.dataset.flag
     console.log('productId:',productId,'action:',action)
     console.log('USER:',user)
     if(user === 'AnonymousUser'){
-        addCookieItem(productId,action)
+        addCookieItem(productId,action,flagu)
 
     }
     else{
@@ -19,7 +20,7 @@ for(var i=0; i<updateBtns.length;i++){
     })
 }
 
-function addCookieItem(productId,action){
+function addCookieItem(productId,action,flag){
     
     console.log("not logged")
     if(action == 'add'){
@@ -28,13 +29,14 @@ function addCookieItem(productId,action){
             cart[productId] = {'quantity':1}
         
         }else{
-            var flag1 = this.dataset.product.prodtype
-            if(flag1){
+            if(flag)
+            {
             cart[productId]['quantity'] += 0.250
-        }
-        else{
-            cart[productId]['quantity'] += 1
-        }
+            }
+            else{
+                cart[productId]['quantity'] +=1.000
+            }
+     
         }
     }
     if(action == 'remove'){
