@@ -217,6 +217,8 @@ def processOrder(request):
                 
     return JsonResponse("payment submitted", safe = False)
 
-#def search(request):
+def profile(request):
+    context={}
+    return render(request,'atoz_store/profile.html',context)
     
     
