@@ -74,7 +74,7 @@ class shipping(models.Model):
     address = models.CharField(max_length=400,null=True)
     city = models.CharField(max_length=400,null=True)
     landmark = models.CharField(max_length=400,null=True)
-    phonenumber = models.IntegerField(default=404,null=False)
+    phonenumber = models.CharField(max_length=10, default=10,null=False)
     zipcode = models.CharField(max_length=400,null=True)
 
     def __str__(self):
@@ -91,6 +91,10 @@ class manager(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     totalm = models.CharField(max_length=400,null=True)
     
+class extendeduser(models.Model):
+    phone_num = models.CharField(max_length=10)
+    user = models.OneToOneField(User,on_delete=models.CASCADE)
+
 
 
     

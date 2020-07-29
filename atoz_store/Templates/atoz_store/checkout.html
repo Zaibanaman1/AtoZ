@@ -28,7 +28,7 @@
 							<input class="form-control" type="text" name="landmark" placeholder="landmark">
 						</div>
 						<div class="form-field">
-							<input class="form-control" type="number" name="phonenumber" placeholder="phone number">
+							<input id="phone" class="form-control" type="number" name="phonenumber" placeholder="phone number">
 						</div>
 						<div class="form-field">
 							<input class="form-control" type="text" name="zipcode" placeholder="Zip code..">
@@ -136,6 +136,9 @@
 	
 		</script>>
 		<script type="text/javascript">
+		    if(user!=='AnonymousUser'){
+				document.getElementById('phone').classList.add('hidden')
+			}
 			document.getElementById('login_register').classList.add('hidden')
 				
 		   
