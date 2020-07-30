@@ -53,7 +53,7 @@ def cart(request):
                         'name':product.name,
                         'price':product.price,
                         'imageURL':product.imageURL,
-                        'flag':'True',
+                        'flag':Flag,
                         
                     },
                     'quantity':cart[i]['quantity'],
@@ -238,4 +238,5 @@ def processOrder(request):
 
 #def search(request):
     
-    
+def profile(request):
+    return render(request,'atoz_store/profile.html')    
