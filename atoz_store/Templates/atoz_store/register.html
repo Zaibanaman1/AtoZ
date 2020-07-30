@@ -1,26 +1,32 @@
-{% extends 'atoz_store/main.html' %}
 {% load static %}
 {% block content %}
+<head>
+    <link rel="stylesheet" href="{% static 'css\style.css' %}">
+</head>
 <div class="" align="center">
-    <form class="form" action="register" method="POST">
+    <form class="main" action="register" method="POST">
         {% csrf_token %}
 
-        <input type="text" name="first_name" placeholder="first name"><br>
+        <input class="un" type="text" name="first_name" placeholder="First Name"><br>
         <br>
-        <input type="text" name="last_name" placeholder="last name"><br>
+        <input type="text" name="last_name" placeholder="Last Name"><br>
        <br>
-        <input type="text" name="username" placeholder="username"><br>
+        <input type="text" name="username" placeholder="Username"><br>
         <br>
-       <input type="email" name="email" placeholder="enter email"><br>
+       <input type="email" name="email" placeholder="Enter E-mail"><br>
        <br>
+<<<<<<< Updated upstream
        <input type="text" name="phone" placeholder="phone number"><br>
        <br>
         <input type="password" name="password1" placeholder="enter the password"><br>
+=======
+        <input type="password" name="password1" placeholder="Enter the Password"><br>
+>>>>>>> Stashed changes
         <br>
-        <input type="password" name="password2" placeholder="enter the password again"><br>
+        <input type="password" name="password2" placeholder="Confirm Password"><br>
         <br>
-        <button type="submit" type="button" class="btn btn-warning">sign up</button><br>
-        <a href="login">already have an account?</a>
+        <button type="submit" type="button" class="btn btn-warning">Sign Up</button><br>
+        <a href="login">Already have an Account?</a>
     </form>
     <div>
         {% for message in messages%}
