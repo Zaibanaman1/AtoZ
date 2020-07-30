@@ -21,6 +21,9 @@ def register(request):
             if User.objects.filter(username=username).exists():
                 messages.info(request,"username taken")
                 return redirect('register')
+            if username=="" or password1=="":
+                messages.info(request,"please fill all the fields ")
+                return redirect('register')
 
             elif User.objects.filter(email=email).exists():
                 messages.info(request,"email taken")

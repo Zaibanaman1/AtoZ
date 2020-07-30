@@ -170,10 +170,24 @@ def processOrder(request):
             )
     total = float(data['form']['total'])
     order.transaction_id = transaction_id
+
     if total == order.get_cart_total:
             order.complete=True
     order.save()
-    shipping.objects.create(
+    usernow=request.user
+    ext = extendeduser.objects.get(user=usernow)
+    if request.user.is_authenticated:
+        shipping.objects.create(
+        customer=customer,
+        Order=order,
+        address=data['shipping']['address'],
+        city = data['shipping']['city'],
+        landmark = data['shipping']['landmark'],
+        phonenumber = ext.phone_num,
+        zipcode = data['shipping']['zipcode'],
+         )
+    else:
+        shipping.objects.create(
         customer=customer,
         Order=order,
         address=data['shipping']['address'],
@@ -181,12 +195,17 @@ def processOrder(request):
         landmark = data['shipping']['landmark'],
         phonenumber = data['shipping']['phonenumber'],
         zipcode = data['shipping']['zipcode'],
-         )
+         )     
     name = data['form']['name']
     address=data['shipping']['address'],
     city = data['shipping']['city'],
     landmark = data['shipping']['landmark'],
-    phonenumber = data['shipping']['phonenumber'],
+    
+    if request.user.is_authenticated:
+        phonenumber=ext.phone_num
+        print(phonenumber)
+    else:
+        phonenumber = data['shipping']['phonenumber'],
     zipcode = data['shipping']['zipcode']
     items = order.orderitem_set.all()
     productmname = []
