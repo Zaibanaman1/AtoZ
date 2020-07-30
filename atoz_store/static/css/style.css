@@ -1,13 +1,13 @@
  body {
-        background-color: honeydew;
+        background-color: #fff;
         font-family: 'Ubuntu', sans-serif;
     }
     
     .main {
         background-color: honeydew;
         width: 400px;
-        height: 550px;
-        margin: 7em auto;
+        height: 750px;
+        margin: 6em auto;
         border-radius: 1.5em;
         box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
     }
@@ -34,7 +34,7 @@
     box-sizing: border-box;
     border: 2px solid rgba(0, 0, 0, 0.02);
     margin-bottom: 50px;
-    margin-left: 46px;
+    margin-left: 25px;
     text-align: center;
     margin-bottom: 27px;
     font-family: 'Ubuntu', sans-serif;
@@ -53,7 +53,7 @@
         box-sizing: border-box;
         border: 2px solid rgba(0, 0, 0, 0.02);
         margin-bottom: 50px;
-        margin-left: 46px;
+        margin-left: 25px;
         text-align: center;
         margin-bottom: 27px;
         font-family: 'Ubuntu', sans-serif;
@@ -72,7 +72,7 @@
             box-sizing: border-box;
             border: 2px solid rgba(0, 0, 0, 0.02);
             margin-bottom: 50px;
-            margin-left: 46px;
+            margin-left: 25px;
             text-align: center;
             margin-bottom: 27px;
             font-family: 'Ubuntu', sans-serif;
@@ -95,7 +95,7 @@
     box-sizing: border-box;
     border: 2px solid rgba(0, 0, 0, 0.02);
     margin-bottom: 50px;
-    margin-left: 46px;
+    margin-left: 25px;
     text-align: center;
     margin-bottom: 27px;
     font-family: 'Ubuntu', sans-serif;
@@ -111,13 +111,14 @@
         padding-bottom: 10px;
         padding-top: 10px;
         font-family: 'Ubuntu', sans-serif;
-        margin-left: 35%;
+        margin-left: 30%;
+        margin-right: 30%;
         font-size: 13px;
         box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
     }
     
    
-    a {
+    .a {
         text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
         color: grey;
         text-decoration: none
