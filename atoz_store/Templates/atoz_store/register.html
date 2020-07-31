@@ -6,23 +6,22 @@
 <div class="" align="center">
     <form class="main" action="register" method="POST">
         {% csrf_token %}
-
+        <p class="sign" align="center">Sign Up</p>
         <input class="un" type="text" name="first_name" placeholder="First Name"><br>
         <br>
-        <input type="text" name="last_name" placeholder="Last Name"><br>
+        <input class="un" type="text" name="last_name" placeholder="Last Name"><br>
        <br>
-        <input type="text" name="username" placeholder="Username"><br>
+        <input class="un" type="text" name="username" placeholder="Username"><br>
         <br>
-       <input type="email" name="email" placeholder="Enter E-mail"><br>
+       <input class="em" type="email" name="email" placeholder="Enter E-mail"><br>
        <br>
-       <input type="text" name="phone" placeholder="phone number"><br>
+       <input class="ph" type="text" name="phone" placeholder="Phone number"><br>
        <br>
-        <input type="password" name="password1" placeholder="enter the password"><br>
-        <input type="password" name="password1" placeholder="Enter the Password"><br>
+        <input class="pass" type="password" name="password1" placeholder="Enter the password"><br>
+        <input class="pass" type="password" name="password1" placeholder="Confirm Password"><br>
         <br>
-        <input type="password" name="password2" placeholder="Confirm Password"><br>
-        <br>
-        <button type="submit" type="button" class="btn btn-warning">Sign Up</button><br>
+        
+        <button class="submit" type="submit" type="button" class="btn btn-warning">Sign Up</button><br>
         <a href="login">Already have an Account?</a>
     </form>
     <div>
