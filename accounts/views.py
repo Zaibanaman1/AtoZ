@@ -67,3 +67,7 @@ def login(request):
 def logout(request):
     auth.logout(request)
     return redirect('/')       
+def forgotpassword(request):
+    return render(request,'atoz_store/forgotpassword.html')
+    
+
