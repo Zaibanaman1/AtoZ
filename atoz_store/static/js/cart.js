@@ -4,7 +4,11 @@ for(var i=0; i<updateBtns.length;i++){
     updateBtns[i].addEventListener('click',function(){
     var productId = this.dataset.product
     var action = this.dataset.action
+    var flag = this.dataset.flag
+    var flags = flag.toString()
+    console.log(flags)
     
+ 
     console.log('productId:',productId,'action:',action)
     console.log('USER:',user)
     if(user === 'AnonymousUser'){
@@ -21,19 +25,21 @@ for(var i=0; i<updateBtns.length;i++){
 }
 
 function addCookieItem(productId,action){
-    if(action == 'add'){
-        if(cart[productId] == undefined){
+    if(action == 'add')
+    {
+        if(cart[productId] == undefined)
+        {
             console.log('werehere')
             cart[productId] = {'quantity':1}
         
-        }else{
-         
-            cart[productId]['quantity'] += 0.250
-       
-          
-     
         }
+        else
+        {
+           
+       
+            cart[productId]['quantity'] +=0.250        
     }
+}
     if(action == 'remove'){
         cart[productId]['quantity'] -=0.250
         if(cart[productId]['quantity']<=0.000){
@@ -47,6 +53,7 @@ function addCookieItem(productId,action){
     document.cookie = 'cart=' + JSON.stringify(cart) + ';domain=;PATH=/'
     location.reload()
 }
+
 function updateUserOrder(productId,action){
     console.log('user is logged in, sending data')  
 

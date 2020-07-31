@@ -2,16 +2,16 @@
 {% load static %}
 {% block content %}
 <div class="main">
-    <p class="sign" align="center">Log in</p>
+    <p class="sign" align="center">Sign in</p>
  
     <form action="login" class="form1" method="POST">
         {% csrf_token %}
       <input class="un " name="login_username" type="text" align="center" placeholder="Username">
       <input class="pass" type="password" name="login_password" align="center" placeholder="Password">
-      <button type="submit" class="submit" type="button" class="btn btn-warning-1"  name='Submit' align="center" >Login</button><br>
+      <button type="submit" type="button" class="btn btn-warning-1"  name='Log in' align="center" >Login</button><br>
       <br>
-      <p  class="forgot" align="center"><a href="forgotpassword">Forgot Password?</p>
-      <p class="SIGN UP" align="center"><a href="register">Sign Up</a></p>    
+      <p  class="forgot" align="center"><a href="#">Forgot Password?</p>
+      <p class="SIGN UP" align="center"><a href="register">sign up</a></p>    
                 
 
     <div>
