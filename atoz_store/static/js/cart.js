@@ -4,27 +4,27 @@ for(var i=0; i<updateBtns.length;i++){
     updateBtns[i].addEventListener('click',function(){
     var productId = this.dataset.product
     var action = this.dataset.action
-    var flag = this.dataset.flag
-    var flags = flag.toString()
-    console.log(flags)
+    var flagg =this.dataset.flagu
+
     
  
     console.log('productId:',productId,'action:',action)
     console.log('USER:',user)
     if(user === 'AnonymousUser'){
-        addCookieItem(productId,action)
+        addCookieItem(productId,action,flagg)
 
     }
     else{
         updateUserOrder(productId,action)
-        
+           
         }
     
 
     })
 }
 
-function addCookieItem(productId,action){
+function addCookieItem(productId,action,flag){
+  
     if(action == 'add')
     {
         if(cart[productId] == undefined)
@@ -35,13 +35,23 @@ function addCookieItem(productId,action){
         }
         else
         {
+            if(flag){
+                cart[productId]['quantity'] +=1
+            }
            
-       
-            cart[productId]['quantity'] +=0.250        
+            else{
+                cart[productId]['quantity'] +=0.250
+            }
+                   
     }
 }
     if(action == 'remove'){
+        if(flag){
+        cart[productId]['quantity'] -=1
+        }
+        else{
         cart[productId]['quantity'] -=0.250
+        }
         if(cart[productId]['quantity']<=0.000){
             console.log("remove item")
             delete cart[productId]
@@ -55,6 +65,11 @@ function addCookieItem(productId,action){
 }
 
 function updateUserOrder(productId,action){
+    if(action==undefined)
+    {
+        action="add"
+    }
+    console.log(productId,action)
     console.log('user is logged in, sending data')  
 
     var url = '/updateItem/'

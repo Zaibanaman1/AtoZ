@@ -26,6 +26,7 @@ def cart(request):
         customer.save()
         order,created = Order.objects.get_or_create(customer=customer,complete=False)
         items = order.orderitem_set.all()
+        print(items)
         cartitems = order.get_cart_items
     
 
@@ -82,6 +83,7 @@ def checkout(request):
         cartitems = order.get_cart_items
      else:
         cookieData = cookieCart(request)
+        print(cookieData)
         cartitems = cookieData['cartitems']
         order = cookieData['order']
         items = cookieData['items']
@@ -97,6 +99,7 @@ def user(request):
 
 def updateItem(request):
     data = json.loads(request.body)
+    print(data)
     productId = data['productId']
     action = data['action']
     print('Action:',action)
