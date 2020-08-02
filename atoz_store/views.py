@@ -177,9 +177,10 @@ def processOrder(request):
     if total == order.get_cart_total:
             order.complete=True
     order.save()
-    usernow=request.user
-    ext = extendeduser.objects.get(user=usernow)
+    
     if request.user.is_authenticated:
+        usernow=request.user
+        ext = extendeduser.objects.get(user=usernow)
         shipping.objects.create(
         customer=customer,
         Order=order,
