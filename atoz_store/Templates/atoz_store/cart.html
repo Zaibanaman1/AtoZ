@@ -38,9 +38,9 @@
                     {% if item.product.flag or item.product.prodtype %}
                         <p class="quantity"> <strong> {{item.quantity|floatformat:3}}</strong>kg</p>
                     <div class="quantity">
-                        <img data-product={{item.product.id}} data-action="add" data-flagu={{item.product.flag}  class="chg-quantity update-cart"  src="{% static  'images/arrow-up.png' %}">
+                        <img data-product={{item.product.id}} data-action="add" data-flagu={{item.product.flag}}  class="chg-quantity update-cart"  src="{% static  'images/arrow-up.png' %}">
                 
-                        <img data-product={{item.product.id}} data-action="remove" class="chg-quantity update-cart" src="{% static  'images/arrow-down.png' %}">
+                        <img data-product={{item.product.id}} data-action="remove" data-flagu={{item.product.flag}} class="chg-quantity update-cart" src="{% static  'images/arrow-down.png' %}">
                     </div>               
                     {% else %}
                     <p class="quantity"> <strong> {{item.quantity|floatformat:0}}</strong>pcs</p>

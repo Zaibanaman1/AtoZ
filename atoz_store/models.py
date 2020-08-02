@@ -91,7 +91,10 @@ class manager(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     totalm = models.CharField(max_length=400,null=True)
     
-
+class extendeduser(models.Model):
+    phone_num=models.CharField(max_length=10,null=True)
+    user=models.OneToOneField(User,on_delete=models.CASCADE)
+    
 
     
     

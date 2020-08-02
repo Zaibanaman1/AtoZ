@@ -24,7 +24,8 @@ for(var i=0; i<updateBtns.length;i++){
 }
 
 function addCookieItem(productId,action,flag){
-  
+    console.log(flag)
+
     if(action == 'add')
     {
         if(cart[productId] == undefined)
@@ -36,21 +37,24 @@ function addCookieItem(productId,action,flag){
         else
         {
             if(flag){
-                cart[productId]['quantity'] +=1
+                console.log("+1",flag)
+              cart[productId]['quantity'] += 1
             }
            
             else{
-                cart[productId]['quantity'] +=0.250
+
+                console.log("0.25",flag)
+            cart[productId]['quantity'] += 0.250
             }
                    
     }
 }
     if(action == 'remove'){
         if(flag){
-        cart[productId]['quantity'] -=1
+        cart[productId]['quantity'] -= 1
         }
         else{
-        cart[productId]['quantity'] -=0.250
+        cart[productId]['quantity'] -= 0.250
         }
         if(cart[productId]['quantity']<=0.000){
             console.log("remove item")
