@@ -47,7 +47,7 @@ def cart(request):
                 Flag = product.prodtype
                 total = (product.price * Decimal(cart[i]['quantity']))
                 order['get_cart_total'] +=  total
-                order['get_cart_items'] +=  cart[i]['quantity']       
+                order['get_cart_items'] +=Decimal( cart[i]['quantity'])       
                 item ={
                         'product':{
                         'id':product.id,

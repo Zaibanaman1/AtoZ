@@ -44,7 +44,7 @@ function addCookieItem(productId,action,flag){
             else{
 
                 console.log("0.25",flag)
-            cart[productId]['quantity'] += 1
+            cart[productId]['quantity'] += 1.000
             }
                    
     }
@@ -54,7 +54,7 @@ function addCookieItem(productId,action,flag){
         cart[productId]['quantity'] -= 0.250
         }
         else{
-        cart[productId]['quantity'] -= 1
+        cart[productId]['quantity'] -= 1.000
         }
         if(cart[productId]['quantity']<=0.000){
             console.log("remove item")
