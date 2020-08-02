@@ -28,7 +28,7 @@ function addCookieItem(productId,action,flag){
 
     if(action == 'add')
     {
-        if(cart[productId] == undefined)
+        if(cart[productId] ==undefined)
         {
             console.log('werehere')
             cart[productId] = {'quantity':1}
@@ -36,25 +36,25 @@ function addCookieItem(productId,action,flag){
         }
         else
         {
-            if(flag){
+            if(flag==='True'){
                 console.log("+1",flag)
-              cart[productId]['quantity'] += 1
+              cart[productId]['quantity'] += 0.250
             }
            
             else{
 
                 console.log("0.25",flag)
-            cart[productId]['quantity'] += 0.250
+            cart[productId]['quantity'] += 1
             }
                    
     }
 }
     if(action == 'remove'){
-        if(flag){
-        cart[productId]['quantity'] -= 1
+        if(flag==="True"){
+        cart[productId]['quantity'] -= 0.250
         }
         else{
-        cart[productId]['quantity'] -= 0.250
+        cart[productId]['quantity'] -= 1
         }
         if(cart[productId]['quantity']<=0.000){
             console.log("remove item")
