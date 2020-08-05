@@ -267,3 +267,57 @@ h1,h2,h3,h4,h5,h6{
         margin-left:-20%;/* whatever */
       
 }
+
+#jmb{
+    background-color: gray;
+}
+
+#slider{
+    overflow: hidden;
+}
+#slider figure {
+    position: relative;
+    width: 100%;
+    margin: 0;
+    left: 0;
+    animation: slider 15s infinite;
+}
+#slider figure img{
+    width: 50%;
+    float: left;
+}
+
+@keyframes slider {
+    
+ 0% {
+     left: 0;
+ }
+
+ 20% {
+     left: 0;
+ }
+ 25%{
+    left: -100% ;
+ }
+
+ 45%{
+     left: -100%;
+ }
+ 50%{
+     left: -200%;
+ }
+ 70%{
+     left:-200%;
+ }
+ 75%{
+     left: -300%;
+ }
+ 
+95%{
+    left: -300%;
+}
+100%{
+    left:-400% ;
+}
+
+}

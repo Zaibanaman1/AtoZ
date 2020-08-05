@@ -14,8 +14,16 @@ class Customer(models.Model):
         return self.name
 
 
+
 class Product(models.Model):
+    catagory_choice = (
+        ("FR","fruit"),
+        ("DR","dryfruit"),
+        ("VG","vegitable"),
+        ("oth","other"),   
+         )
     name = models.CharField(max_length=128,null=True,)
+    catagory = models.CharField(max_length=30,choices= catagory_choice ,null=True)
     price = models.DecimalField(max_digits=7, decimal_places=2)
     image = models.ImageField(null=True,blank=True)
     prodtype =models.BooleanField(default=True)
