@@ -6,6 +6,7 @@ import json
 from . utils import cookieCart
 from django.contrib.auth.models import User,auth
 from decimal import Decimal
+import pytz
 
 # Create your views here.
 def store(request):
@@ -43,6 +44,7 @@ def cart(request):
         for  i  in cart:
             try:
                 cartitems += Decimal(cart[i]['quantity'])
+               
                 product = Product.objects.get(id=i)
                 Flag = product.prodtype
                 total = (product.price * Decimal(cart[i]['quantity']))
@@ -132,7 +134,9 @@ def updateItem(request):
     return JsonResponse(" ",safe=False)
 
 def processOrder(request):
-    transaction_id = datetime.datetime.now().time()
+    ist = pytz.timezone('Asia/Calcutta')
+    print(ist)
+    transaction_id = datetime.datetime.now(ist).time()
     data = json.loads(request.body)
     print('Data:',request.body)
     if request.user.is_authenticated:
@@ -153,6 +157,7 @@ def processOrder(request):
         print('cookies:',request.COOKIES)
         name = data['form']['name']
         email = data['form']['email']
+            
         cookieData = cookieCart(request)
         items = cookieData['items']
         customer,created = Customer.objects.get_or_create(
@@ -240,7 +245,14 @@ def processOrder(request):
                 
     return JsonResponse("payment submitted", safe = False)
 
-#def search(request):
+def search(request):
+    search=request.GET.get("search")
+    print(search)
+    products = Product.objects.all()
+    context = {'products':products}
+    return render(request ,'atoz_store/store.html',context)
     
 def profile(request):
+   
+
     return render(request,'atoz_store/profile.html')    
