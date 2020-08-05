@@ -9,10 +9,9 @@
  
     <form action="login" class="form1" method="POST">
         {% csrf_token %}
-      <input class="un " name="login_username" type="text" align="center" placeholder="Username">
-      <input class="pass" type="password" name="login_password" align="center" placeholder="Password">
-      <button type="submit" type="button" class="btn btn-warning-1"  name='Log in' align="center" >Submit</button><br>
-      <br>
+      <input class="un" name="login_username" type="text" align="center" placeholder="Username">
+      <input class="pass" type="Password" name="login_password" align="center" placeholder="Password">
+      <button class="submit" type="submit" type="button" class="btn btn-warning-1"  name='Log in' align="center" >Submit</button>
       <p  class="forgot" align="center"><a href="forgotpassword">Forgot Password?</p>
       <p class="SIGN UP" align="center"><a href="register">Sign up</a></p>    
                 
