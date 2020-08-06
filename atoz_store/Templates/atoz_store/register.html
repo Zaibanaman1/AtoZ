@@ -6,6 +6,8 @@
 </head>
 <div class="" align="center">
     <form class="main" action="register" method="POST">
+        <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=2.5">
         {% csrf_token %}
         <p class="sign" align="center">Sign Up</p>
         <input class="un" type="text" name="first_name" placeholder="First Name"><br>
@@ -23,7 +25,8 @@
         <br>
         
         <button class="submit" type="submit" type="button" class="btn btn-warning">Sign Up</button><br>
-        <a href="login">Already have an Account?</a>
+        <br>
+        <a class="a" align="center" href="login">Already have an Account?</a>
     </form>
     <div>
         {% for message in messages%}
