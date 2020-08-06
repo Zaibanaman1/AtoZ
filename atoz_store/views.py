@@ -23,9 +23,21 @@ def store(request):
         items= order.orderitem_set.all()
         cartItems = order.get_cart_items
     else:
-        items=[]
-        order ={'get_cart.total':0,'get_cart_items':0}
-        cartItems=order['get_cart_items']   
+        try:
+            cart = json.loads(request.COOKIES['cart'])
+            
+        except:
+            cart = {}
+        items = []
+        order = {'get_cart_total':0,'get_cart_items':0}
+        cartItems = order['get_cart_items']
+        print(cartItems)
+        
+        for  i  in cart:
+            try:
+                cartItems += 1
+            except:pass    
+
     products = Product.objects.all()
     context = {'products':products,'cartItems':cartItems}
     return render(request ,'atoz_store/store.html',context)
