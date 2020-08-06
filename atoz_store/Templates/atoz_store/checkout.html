@@ -17,7 +17,7 @@
 					<div style="flex:1"><p>{{item.get_total|floatformat:2}} </p></div>
 				</div>
 				{% endfor %}
-				<h5>Items:   {{order.get_cart_items}}</h5>
+				<h5>Items:   {{cartitems|floatformat:0}}</h5>
 				<h5>Total:   Rs{{order.get_cart_total|floatformat:2}}</h5>
 			</div>
 		</div>

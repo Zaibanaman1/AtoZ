@@ -10,8 +10,24 @@ import pytz
 
 # Create your views here.
 def store(request):
+    if request.user.is_authenticated:
+        email = request.user.email
+        name = request.user.first_name
+        customer,created = Customer.objects.get_or_create(
+            email=email,
+        )
+        customer.name = name
+        customer.save()
+      
+        order,created = Order.objects.get_or_create(customer=customer,complete=False)
+        items= order.orderitem_set.all()
+        cartItems = order.get_cart_items
+    else:
+        items=[]
+        order ={'get_cart.total':0,'get_cart_items':0}
+        cartItems=order['get_cart_items']   
     products = Product.objects.all()
-    context = {'products':products}
+    context = {'products':products,'cartItems':cartItems}
     return render(request ,'atoz_store/store.html',context)
 
 
@@ -29,6 +45,7 @@ def cart(request):
         items = order.orderitem_set.all()
         print(items)
         cartitems = order.get_cart_items
+        print(cartitems,"here we are")
     
 
     else:
@@ -40,16 +57,17 @@ def cart(request):
         items = []
         order = {'get_cart_total':0,'get_cart_items':0}
         cartitems = order['get_cart_items']
+        print(cartitems)
         
         for  i  in cart:
             try:
-                cartitems += Decimal(cart[i]['quantity'])
+                cartitems += 1
                
                 product = Product.objects.get(id=i)
                 Flag = product.prodtype
                 total = (product.price * Decimal(cart[i]['quantity']))
                 order['get_cart_total'] +=  total
-                order['get_cart_items'] +=Decimal( cart[i]['quantity'])       
+                order['get_cart_items'] =cartitems    
                 item ={
                         'product':{
                         'id':product.id,

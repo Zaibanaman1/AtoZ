@@ -15,12 +15,12 @@ def cookieCart(request):
         
     for  i  in cart:
         try:
-            cartitems += cart[i]['quantity']
+            cartitems += 1
             print(cartitems)
             product = Product.objects.get(id=i)
             total = (product.price * Decimal(cart[i]['quantity']))
             order['get_cart_total'] +=  total
-            order['get_cart_items'] +=  cart[i]['quantity']
+            order['get_cart_items'] +=  cartitems
             item ={
                 'product':{
                     'id':product.id,
