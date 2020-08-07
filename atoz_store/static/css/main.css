@@ -16,6 +16,12 @@ h1,h2,h3,h4,h5,h6{
 
 }
 
+
+.delete{
+    width: 1cm;
+    height: 1cm;
+}
+
 .thumbnail{
 	width: 100%;
 	height: 200px;
