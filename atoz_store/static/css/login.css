@@ -5,6 +5,25 @@ body {
     background-position: center;
 }
 
+.btn{
+    cursor: pointer;
+    border-radius: 5em;
+    color: black;
+    background: linear-gradient(to right,#fcd12a,#fcd12a );
+    border: 1px;
+    text-align: left;
+    padding-left: 35px;
+    padding-right: 35px;
+    padding-bottom: 13px;
+    padding-top: 15px;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: bolder;
+    margin-left: 20px;
+    margin-right: 55px;
+    margin-left: 10px;
+    font-size: 13px;
+    box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+}
 .main {
     background-color: #fff;
     width: 400px;

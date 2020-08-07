@@ -4,7 +4,7 @@
      <div class="row">
 		<div class="col-lg-6">
 			<div class="box-element">
-				<a  class="btn btn-outline-dark" href="{% url 'cart' %}">&#x2190; Back to Cart</a>
+				<a  class="btn btn-outline-dark srcbtn" href="{% url 'cart' %}">&#x2190; Back to Cart</a>
 				<hr>
 				<h3>Order Summary</h3>
 				<hr>
@@ -64,7 +64,7 @@
 				</div>
 
 				<hr>
-				<input id="form-button" class="btn btn-success btn-block" type="submit" value="Continue">
+				<input id="form-button" class="btn btn-success btn-block srcbtn" type="submit" value="Continue">
 			</form>
 		</div>
 
@@ -76,7 +76,7 @@
 			 <label for="cod">COD</label><br>
 			 <input type="radio" name="payment-options" id="online" value="online">  
 			 <label for="online">UPI and other payment-options</label>
-			<button id='make-payment' type="button" class="btn btn-success">Proceed</button>
+			<button id='make-payment' type="button" class="btn btn-success srcbtn">Proceed</button>
 		</form>
 		</div>
 		
@@ -154,6 +154,7 @@
 	
 		</script>
 		<script type="text/javascript">
+		     document.getElementById('navmain').classList.add('hidden')
 		    if(user!=='AnonymousUser'){
 				document.getElementById('phone').classList.add('hidden')
 			}

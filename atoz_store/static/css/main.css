@@ -35,7 +35,7 @@ h1,h2,h3,h4,h5,h6{
 }
 
 .bg-dark{
-	background-color:grey;
+	background-color:#fff;
 }
 
 #cart-icon{
@@ -61,8 +61,8 @@ h1,h2,h3,h4,h5,h6{
 }
 
 .btn{
-	border-radius: 60;
-	background-color: #fcd12a;
+	border-radius: 5em;
+	background-color: #6b8e23;
 	color: black;
 }
 
@@ -111,10 +111,14 @@ h1,h2,h3,h4,h5,h6{
 }
 
 .btn:hover{
-	background-color: #5cb85c;
+	background-color: #fcd12a;
 	box-shadow: 0 5px 15px rgba(32, 202, 108, 0.4);
 	  
 }
+.srcbtn{
+    background-color: #fcd12a;
+}
+
 
 .col-lg-4{
 	padding-top: 10px;

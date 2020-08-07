@@ -4,7 +4,7 @@
 	<div class="row">
 		<div class="col-lg-12">
 			<div class="box-element">
-                <a  class="btn btn-outline-dark" href="{% url 'store' %}">&#x2190; Continue Shopping</a>
+                <a  class="btn btn-outline-dark srcbtn" href="{% url 'store' %}">&#x2190; Continue Shopping</a>
 
 			</div>
 
@@ -15,7 +15,7 @@
                     <th><h5>Items: <strong>{{order.get_cart_items|floatformat:0}}</strong></h5></th>
                     <th><h5>Total:<strong> Rs.{{order.get_cart_total|floatformat:2}}</strong></h5></th>
                     <th>
-                        <a  style="float:right; margin:5px;" class="btn btn-success" href="{% url 'checkout' %}">Checkout</a>
+                        <a  style="float:right; margin:5px;" class="btn btn-success srcbtn" href="{% url 'checkout' %}">Checkout</a>
                     </th>
                 </tr>
             </table>
@@ -23,9 +23,12 @@
 			<div class="box-element">
                 <div class="cart-row">
 					<div style="flex:2"></div>
-					<div style="flex:2"><strong>Item</strong></div>
+                    <div style="flex:2"><strong>Item</strong></div>
+                    <br>
                     <div style="flex:1"><strong>Price</strong></div>
-					<div style="flex:1"><strong>Qty</strong></div>
+                    <br>
+                    <div style="flex:1"><strong>Qty</strong></div>
+                    <br>
 					<div style="flex:1"><strong>Total</strong></div>
 
             </div>

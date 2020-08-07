@@ -4,9 +4,10 @@
 <head> 
     <link rel="stylesheet" href="{% static 'css/login.css' %}">
 </head>
-<div class="main">
+<a   class="btn" href="{% url 'store' %}">Store</a>
+<div class="container main">
     <p class="sign" align="center">Log In</p>
- 
+     
     <form action="login" class="form1" method="POST">
         {% csrf_token %}
         <meta charset="UTF-8">
