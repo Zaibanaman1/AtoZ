@@ -42,14 +42,25 @@
                             <img data-product={{item.product.id}} data-action="add" class="chg-quantity update-cart"  src="{% static  'images/arrow-up.png' %}">
                     
                             <img data-product={{item.product.id}}  data-action="remove" class="chg-quantity update-cart" src="{% static  'images/arrow-down.png' %}">
+                         
                         </div>
+                    
+                           
+                         
+                       
                         {% else %}
                         <p class="quantity"> <strong> {{item.quantity|floatformat:0}}</strong></p>
                         <div class="quantity">
                             <img data-product={{item.product.id}} data-action="add" class="chg-quantity update-cart"  src="{% static  'images/arrow-up.png' %}">
                     
                             <img data-product={{item.product.id}}  data-action="remove" class="chg-quantity update-cart" src="{% static  'images/arrow-down.png' %}">
+
+                          
                         </div> 
+                
+                            
+                    
+                       
                         {% endif%}                  
                    
 
@@ -73,6 +84,7 @@
                     {% endif %}   
                 </div>
                 <div style="flex:1"><p>Rs{{item.get_total|floatformat:2}}</p></div>
+                <img data-product={{item.product.id}} data-action="delete" class="chg-quantity update-cart"  src="{% static  'images/x.png' %}">
             </div>
             {% endfor %}
 		</div>

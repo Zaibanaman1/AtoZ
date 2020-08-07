@@ -103,6 +103,9 @@ class extendeduser(models.Model):
     phone_num=models.CharField(max_length=10,null=True)
     user=models.OneToOneField(User,on_delete=models.CASCADE)
     
+    def __str__(self):
+        return self.phone_num
+
 
     
     

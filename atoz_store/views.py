@@ -164,7 +164,7 @@ def updateItem(request):
     return JsonResponse(" ",safe=False)
 
 def processOrder(request):
-    ist = pytz.timezone('Asia/Calcutta')
+    ist = pytz.timezone("Asia/Calcutta")
     print(ist)
     transaction_id = datetime.datetime.now(ist).time()
     data = json.loads(request.body)
@@ -283,6 +283,33 @@ def search(request):
     return render(request ,'atoz_store/store.html',context)
     
 def profile(request):
+    if request.user.is_authenticated:
+        email = request.user.email
+        name = request.user.first_name
+        customer,created = Customer.objects.get_or_create(
+            email=email,
+        )
+        customer.name = name
+        customer.save()
+        cus = []
+        cus.append(customer.name)
+        for cust in cus:
+            print(cust)
+       
+        
+
+        order,created = Order.objects.get_or_create(customer=customer,complete=False)
+        ord = list(Order.objects.filter(customer=customer)) 
+        print(ord)
+
+        items = order.orderitem_set.all()
+        
+        cartitems = order.get_cart_items
+   
+    else:
+        pass    
+
+    context ={'ord':ord,"items":items,'cartitems':cartitems}
    
 
-    return render(request,'atoz_store/profile.html')    
+    return render(request,'atoz_store/profile.html',context)    
