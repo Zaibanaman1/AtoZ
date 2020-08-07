@@ -1,10 +1,13 @@
 body {
-    background-color: #fff;
+
+    background-image: url(../images/img.jpg);
+    background-size: cover;
+    background-position: center;
     font-family: 'Ubuntu', sans-serif;
 }
 
 .main {
-    background-color: honeydew;
+    background-color: #fff;
     width: 400px;
     height: 350px;
     margin: 6em auto;
@@ -14,7 +17,7 @@ body {
 
 .sign {
     padding-top: 40px;
-    color: grey;
+    color: black;
     font-family: 'Ubuntu', sans-serif;
     font-weight: bold;
     font-size: 23px;
@@ -22,7 +25,7 @@ body {
 
 .ph {
     width: 76%;
-    color: rgb(38, 50, 56);
+    color: black;
     font-weight: 700;
     font-size: 14px;
     letter-spacing: 1px;
@@ -48,8 +51,8 @@ form.form1 {
 .submit {
   cursor: pointer;
     border-radius: 5em;
-    color: #fff;
-    background: linear-gradient(to right,#fcd12a,#fcd12a );
+    color: black;
+    background: linear-gradient(to right,#6b8e23,#6b8e23 );
     border: 1px;
     text-align: center;
     padding-left: 50px;
@@ -61,12 +64,13 @@ form.form1 {
     margin-right: 55px;
     font-size: 13px;
     box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+    font-weight: bolder;
 }
 
 
 .a {
     text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
-    color: grey;
+    color: black;
     text-decoration: none
 }
 

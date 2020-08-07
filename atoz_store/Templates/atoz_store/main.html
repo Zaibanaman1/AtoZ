@@ -53,32 +53,51 @@ console.log('cart:',cart)
     <title>AtoZ</title>
 </head>
 <body>
-    <h3><nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="{% url 'store' %}">AtoZ</a>
-       
-  
-           
-          </ul>
-          <div id="login_register" class="form-inline my-2 my-lg-0">
+   <h3>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top ">
+      <a class="navbar-brand" href="{% url 'store' %}">AtoZ</a>
+      {% if user.is_authenticated %}
+        <a>hello, {{user.username}}</a>
+        {% else %}
+        <a href="accounts/login"class="btn btn-warning">Register/Login</a>
+       {% endif %}
+       <a href="{% url 'cart' %}">
+        <img  id="cart-icon" src="{% static 'images/cart.png' %}">
+    </a>
+    <p id="cart-total">{{cartItems}}</p>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              profile
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="profile">Order Tracking</a>
+              <a class="dropdown-item" href="#">Your orders</a>
+              {% if user.is_authenticated %} 
+              <a class="dropdown-item" id="logout" href="accounts/logout">logout</a>
+           {% else %}
+             <p></p>
+              {% endif %}
+              <div class="dropdown-divider"></div>
             
-            <ul>
-              {% if user.is_authenticated %}
-            <li id="login_name">hello, {{user.username}}</li>
-             <li id="logout"><a href="accounts/logout">logout</a></li>
-            {% else %}
-              <a href="accounts/login"class="btn btn-warning">Register/Login</a>
-               {% endif %}
-       
-              </ul>
-               <a href="{% url 'cart' %}">
-                  <img  id="cart-icon" src="{% static 'images/cart.png' %}">
-              </a>
-              <p id="cart-total">{{cartItems}}</p>
-  
-          </div>
-        </div>
-      </nav></h3>
-    <h3></h3>
+            </div>
+          </li>
+          <li class="nav-item">
+            
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+   </h3>
    <div class="container">
        <br>
        {% block content%}
@@ -97,8 +116,6 @@ console.log('cart:',cart)
 
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
   <script type="text/javascript" src="{% static 'js/cart.js' %}"></script>
-</body>
-</html>
-
+  
 </body>
 </html>
