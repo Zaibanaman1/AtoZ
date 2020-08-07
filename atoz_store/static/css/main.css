@@ -142,34 +142,7 @@ h1,h2,h3,h4,h5,h6{
     }
     
     
-    .sign {
-        padding-top: 40px;
-        color: grey;
-        font-family: 'Ubuntu', sans-serif;
-        font-weight: bold;
-        font-size: 23px;
-    }
-    
-    .un {
-    width: 76%;
-    color: rgb(38, 50, 56);
-    font-weight: 700;
-    font-size: 14px;
-    letter-spacing: 1px;
-    background: rgba(136, 126, 126, 0.04);
-    padding: 10px 20px;
-    border: none;
-    border-radius: 20px;
-    outline: none;
-    box-sizing: border-box;
-    border: 2px solid rgba(0, 0, 0, 0.02);
-    margin-bottom: 50px;
-    margin-left: 46px;
-    text-align: center;
-    margin-bottom: 27px;
-    font-family: 'Ubuntu', sans-serif;
-    }
-    
+  
     .sign {
         padding-top: 40px;
         color: grey;
@@ -232,7 +205,7 @@ h1,h2,h3,h4,h5,h6{
       cursor: pointer;
         border-radius: 5em;
         color: #fff;
-        background: linear-gradient(to right,#fcd12a,#fcd12a );
+        background: linear-gradient(to right,#6b8e23,#6b8e23 );
         border: 1;
         padding-left: 30px;
         padding-right: 30px;
