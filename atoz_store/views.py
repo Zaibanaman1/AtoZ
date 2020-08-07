@@ -156,6 +156,9 @@ def updateItem(request):
             orderItem.quantity = (orderItem.quantity - Decimal(0.25) )
         else:            
             orderItem.quantity = (orderItem.quantity - Decimal(1.00) )
+            
+    else:
+        orderItem.quantity = 0       
     orderItem.save()
 
     if orderItem.quantity <= 0:

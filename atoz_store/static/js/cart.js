@@ -103,3 +103,4 @@ function cartIcon(noOfitems){
     //no of items in cart
 
 }
+

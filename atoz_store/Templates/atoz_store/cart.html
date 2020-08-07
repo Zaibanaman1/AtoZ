@@ -84,7 +84,7 @@
                     {% endif %}   
                 </div>
                 <div style="flex:1"><p>Rs{{item.get_total|floatformat:2}}</p></div>
-                <img data-product={{item.product.id}} data-action="delete" class="chg-quantity update-cart"  src="{% static  'images/x.png' %}">
+                <img data-product={{item.product.id}}  data-action="delete" class="delete update-cart"  src="{% static  'images/x.png' %}">
             </div>
             {% endfor %}
 		</div>
