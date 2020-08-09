@@ -280,6 +280,44 @@ def processOrder(request):
     return JsonResponse("payment submitted", safe = False)
 
 def search(request):
+    if request.user.is_authenticated:
+        email = request.user.email
+        name = request.user.first_name
+        customer,created = Customer.objects.get_or_create(
+            email=email,
+        )
+        customer.name = name
+        customer.save()
+        cus = []
+        cus.append(customer.name)
+        for cust in cus:
+            print(cust)
+       
+        
+
+        order,created = Order.objects.get_or_create(customer=customer,complete=False)
+        ord = list(Order.objects.filter(customer=customer)) 
+        print(ord)
+
+        items = order.orderitem_set.all()
+        
+        cartItems = order.get_cart_items
+    else:
+        try:
+            cart = json.loads(request.COOKIES['cart'])
+            
+        except:
+            cart = {}
+        items = []
+        order = {'get_cart_total':0,'get_cart_items':0}
+        cartItems = order['get_cart_items']
+        print(cartItems)
+        
+        for  i  in cart:
+            try:
+                cartItems += 1
+            except:pass 
+            
     if request.method =="POST":
         srch = request.POST["search"]
 
@@ -288,7 +326,7 @@ def search(request):
             match = Product.objects.filter(  Q(catagory__startswith=srch)|Q(name__startswith=srch) )
             print(match)
             if match:
-                return render(request,'atoz_store/search.html',{'sr':match,'products':products})
+                return render(request,'atoz_store/search.html',{'sr':match,'products':products,'cartItems':cartItems})
 
 
     return render(request ,'atoz_store/search.html')
