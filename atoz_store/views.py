@@ -363,3 +363,4 @@ def profile(request):
 
     return render(request,'atoz_store/profile.html',context)    
 
+    

@@ -65,3 +65,5 @@ def billingsum(request):
             except:
                 pass
     print(items)   
+
+

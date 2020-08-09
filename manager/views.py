@@ -30,7 +30,13 @@ def managerdash(request):
         managerda = list(manager.objects.all())
         print(managerda)
         orders = list(Order.objects.all())
-        customers = list(Customer.objects.all()) 
+        customers = list(Customer.objects.all())
+        if request.method =="POST":
+            print("zain suvar")
+            status = request.POST["status"]
+            orders.Status=status
+
+     
         context = {'customers':customers,'orders':orders,'managerda':managerda}
         return render(request,'atoz_store/manager.html',context)
     else:

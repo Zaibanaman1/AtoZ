@@ -41,7 +41,13 @@ class Product(models.Model):
    
 
 class Order(models.Model):
+    status = (
+        ("orderprocessing","order processing"),
+        ("outfordelivery","out for delivery"),
+        ("delivered","delivered"),
+         )
     customer = models.ForeignKey(Customer,on_delete=models.SET_NULL,blank=True,null=True)
+    status = models.CharField(max_length=40,choices=status,null=True)
     date_ordered = models.DateTimeField(auto_now_add=True)
     mark = models.IntegerField(default=1)
     complete = models.BooleanField(default=True,null=True,blank=False)
@@ -64,9 +70,9 @@ class Order(models.Model):
 
   
 
-class OrderItem(models.Model):
+class OrderItem(models.Model): 
     product = models.ForeignKey(Product,on_delete=models.SET_NULL,blank=True,null=True)
-    order = models.ForeignKey(Order,on_delete=models.SET_NULL,blank=True,null=True)
+    order = models.ForeignKey(Order,on_delete=models.SET_NULL,blank=True,null=True) 
     quantity = models.DecimalField(decimal_places=3,max_digits=7 ,default=0,null=True,blank=True)
     date_ordered = models.DateTimeField(auto_now_add=True)
 
@@ -77,6 +83,7 @@ class OrderItem(models.Model):
 
 
 class shipping(models.Model):
+   
     customer = models.ForeignKey(Customer,on_delete=models.SET_NULL,blank=True,null=True)
     Order = models.ForeignKey(Order,on_delete=models.SET_NULL,blank=True,null=True)
     address = models.CharField(max_length=400,null=True)
