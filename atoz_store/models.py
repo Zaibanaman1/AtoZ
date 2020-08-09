@@ -17,10 +17,10 @@ class Customer(models.Model):
 
 class Product(models.Model):
     catagory_choice = (
-        ("FR","fruit"),
-        ("DR","dryfruit"),
-        ("VG","vegitable"),
-        ("oth","other"),   
+        ("fruit","fruit"),
+        ("dryfruit","dryfruit"),
+        ("vegitable","vegitable"),
+        ("other","other"),   
          )
     name = models.CharField(max_length=128,null=True,)
     catagory = models.CharField(max_length=30,choices= catagory_choice ,null=True)

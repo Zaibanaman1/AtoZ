@@ -1,30 +1,41 @@
 {% extends 'atoz_store/main.html' %}
 {% load static %}
 {% block content %}
+<br>
+<br>
 <div>
-<form  class="form-inline my-2 my-lg-0">
-	<input name="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-	<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-  </form>
+	<form class="form-inline my-2 my-lg-0" method="post" action="search">
+		{% csrf_token %}
+	   <input class="form-control mr-sm-2" name="search" type="search" placeholder="Search" aria-label="Search">
+	   <button class="srcbtn btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+	 </form>
   </div>
 
 	<div class="row">
-		{% for product in products %}
+		{% if sr %}
+		{% for k in sr %}
+		 
 		<div id="eachproduct"   class="col-lg-4">
 			
-			<img class="thumbnail" src="{{product.imageURL}}" alt="not found">
+			<img class="thumbnail" src="{{k.imageURL}}" alt="not found">
 			<div  class="box-element product">
 
-				<h6><strong>{{product.name}}</strong></h6>
+				<h6><strong>{{k.name}}</strong></h6>
 				<hr>
 
 				<button id="addToCart" data-product="{{product.id}}" data-action="add"  class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
 				<a class="btn btn-outline-success" href="#">View</a>
-				<h4 style="display: inline-block; float: right"><strong>RS.{{ product.price|floatformat:2}}</strong></h4>
+				<h4 style="display: inline-block; float: right"><strong>RS.{{ k.price|floatformat:2}}</strong></h4>
 
 			</div>
 		</div>
+		
 		 {% endfor %}
+		 {% else %}
+		 <ul><li><h4>no results found</h4></li></ul>
+		
+		 {% endif %}
+		 
 		 
     </div>
     

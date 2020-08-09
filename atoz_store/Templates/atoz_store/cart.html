@@ -39,11 +39,12 @@
                 <div style="flex:2"><strong>Name</strong><p>{{item.product.name}}</p></div>
                 <div style="flex:1"><strong>Price</strong><p>Rs.{{item.product.price|floatformat:2}}</p></div>
                 <div style="flex:1">
+                    <div ><strong>Qty</strong></div>
                     {% if request.user.is_authenticated %}
                         {% if item.product.prodtype %}
-
-                        <p class="quantity"> <strong>{{item.quantity|floatformat:3}}</strong></p>
+                        <p class="quantity" style="flex:1"> <strong> {{item.quantity|floatformat:3}} kg</strong></p>
                         <div class="quantity">
+                            
                             <img data-product={{item.product.id}} data-action="add" class="chg-quantity update-cart"  src="{% static  'images/arrow-up.png' %}">
                     
                             <img data-product={{item.product.id}}  data-action="remove" class="chg-quantity update-cart" src="{% static  'images/arrow-down.png' %}">
@@ -54,7 +55,7 @@
                          
                        
                         {% else %}
-                        <p class="quantity"> <strong> {{item.quantity|floatformat:0}}</strong></p>
+                        <p class="quantity"> <strong> {{item.quantity|floatformat:0}} pcs</strong></p>
                         <div class="quantity">
                             <img data-product={{item.product.id}} data-action="add" class="chg-quantity update-cart"  src="{% static  'images/arrow-up.png' %}">
                     
@@ -72,14 +73,14 @@
                     {% else %}
                    
                     {% if item.product.flag or item.product.prodtype %}
-                        <p class="quantity"> <strong> {{item.quantity|floatformat:3}}</strong></p>
+                        <p class="quantity"> <strong> {{item.quantity|floatformat:3}} kg</strong></p>
                         <div class="quantity">
                             <img data-product={{item.product.id}} data-flagu={{item.product.flag}} data-action="add" class="chg-quantity update-cart"  src="{% static  'images/arrow-up.png' %}">
                     
                             <img data-product={{item.product.id}} data-flagu={{item.product.flag}} data-action="remove" class="chg-quantity update-cart" src="{% static  'images/arrow-down.png' %}">
                         </div>              
                     {% else %}
-                    <p class="quantity"> <strong> {{item.quantity|floatformat:0}}</strong></p>
+                    <p class="quantity"> <strong> {{item.quantity|floatformat:0}} pcs</strong></p>
                     <div class="quantity">
                         <img data-product={{item.product.id}} data-flagu={{item.product.flag}} data-action="add" class="chg-quantity update-cart"  src="{% static  'images/arrow-up.png' %}">
                 
@@ -88,6 +89,7 @@
                     {% endif %}
                     {% endif %}   
                 </div>
+                <div style="flex:1"><p><strong>__________</strong></p></div>
                 <div style="flex:1"><p>Rs{{item.get_total|floatformat:2}}</p></div>
                 <img data-product={{item.product.id}}  data-action="delete" class="delete update-cart"  src="{% static  'images/x.png' %}">
             </div>

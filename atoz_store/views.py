@@ -7,6 +7,7 @@ from . utils import cookieCart
 from django.contrib.auth.models import User,auth
 from decimal import Decimal
 import pytz
+from django.db.models import Q
 
 # Create your views here.
 def store(request):
@@ -279,11 +280,18 @@ def processOrder(request):
     return JsonResponse("payment submitted", safe = False)
 
 def search(request):
-    search=request.GET.get("search")
-    print(search)
-    products = Product.objects.all()
-    context = {'products':products}
-    return render(request ,'atoz_store/store.html',context)
+    if request.method =="POST":
+        srch = request.POST["search"]
+
+        if srch:
+            products = Product.objects.all()
+            match = Product.objects.filter(  Q(catagory__startswith=srch)|Q(name__startswith=srch) )
+            print(match)
+            if match:
+                return render(request,'atoz_store/search.html',{'sr':match,'products':products})
+
+
+    return render(request ,'atoz_store/search.html')
     
 def profile(request):
     if request.user.is_authenticated:
@@ -316,3 +324,4 @@ def profile(request):
    
 
     return render(request,'atoz_store/profile.html',context)    
+
