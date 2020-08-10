@@ -42,13 +42,13 @@ class Product(models.Model):
 
 class Order(models.Model):
     status = (
-        ("orderprocessing","order processing"),
-        ("outfordelivery","out for delivery"),
-        ("delivered","delivered"),
+        ("op","order processing"),
+        ("od","out for delivery"),
+        ("d","delivered"),
          )
     customer = models.ForeignKey(Customer,on_delete=models.SET_NULL,blank=True,null=True)
-    status = models.CharField(max_length=40,choices=status,null=True)
-    date_ordered = models.DateTimeField(auto_now_add=True)
+    status = models.CharField(max_length=40,choices=status,null=True,default="null")
+    date_ordered = models.DateTimeField(auto_now_add=True,null=True)
     mark = models.IntegerField(default=1)
     complete = models.BooleanField(default=True,null=True,blank=False)
     transaction_id = models.CharField(max_length=128,null=True)
@@ -96,7 +96,7 @@ class shipping(models.Model):
         return self.address
 
 class manager(models.Model):
-    Orderm=models.CharField(max_length=1000,null=True)
+    Orderm=models.ForeignKey(Order,on_delete=models.SET_NULL,blank=True,null=True)
     namem=models.CharField(max_length=400,null=True)
     phonem=models.CharField(max_length=400,null=True)
     trans_id = models.CharField(max_length=400,null=True)

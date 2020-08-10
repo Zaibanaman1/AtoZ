@@ -21,7 +21,7 @@
       </tr>
       {% for mdr in managerda %}
       <tr>
-        <td>{{mdr.Orderm}}</td>
+        <td>{{mdr.Orderm.id}}</td>
         <td>{{mdr.namem}}</td>
         <td>{{mdr.phonem}}</td>
         <td>{{mdr.trans_id}}</td>
@@ -29,16 +29,16 @@
         <td><textarea name="" id="" cols="20" rows="5">{{mdr.adressm}}</textarea></td>
         <td>{{mdr.date}}</td>
         <td>{{mdr.totalm}}</td>
-        <td><form  method="POST" action="managerdash">
+        <td><form  id={{mdr.Orderm}} method="POST" action="managerdash">
            {% csrf_token %}
-          <label for="status">Status:</label>
-          <select name="status" id="status">
-            <option value="orderprocessing">order processing</option>
-            <option value="outfordelivery">out for delivery</option>
-            <option value="delivered">delivered</option>
+          <label  for="status">Status:</label>
+          <select  name="status" id="status">
+            <option  value={"ordno":"{{mdr.Orderm}}","status":"op"}>order processing</option>
+            <option value={"ordno":"{{mdr.Orderm}}","status":"od"}>out for delivery</option>
+            <option value={"ordno":"{{mdr.Orderm}}","status":"d"}>delivered</option>
           </select>
           <br><br>
-          <input type="submit" value="Submit">
+          <input data-ord={{mdr.Orderm}}  class="setstatus" type="submit" value="Submit">
         </form></td>
       </tr>
       {% endfor %}

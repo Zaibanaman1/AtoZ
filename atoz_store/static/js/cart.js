@@ -1,4 +1,9 @@
 var updateBtns = document.getElementsByClassName('update-cart')
+var setstatus = document.getElementsByClassName('setstatus')
+
+
+        
+    
 
 for(var i=0; i<updateBtns.length;i++){
     updateBtns[i].addEventListener('click',function(){
@@ -103,9 +108,4 @@ function updateUserOrder(productId,action){
     
 
     }
-var cart_icon = document.getElementById("cart-total")
-function cartIcon(noOfitems){
-    //no of items in cart
-
-}
-
+   

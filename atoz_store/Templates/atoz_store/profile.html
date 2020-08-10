@@ -2,11 +2,32 @@
 {% load static %}
 {% block content %}
 
-    {% for Order in ord %}
-    <div  class="box-element">
-  
-    </div>
+  <br>
+  <br>
+  <br>
 
-{%endfor%}
+  <br>
+  <h3>track your order</h3>
+  <h5>order no:{{ordid}}</h5>
+    <div  class="box-element">
+        {% if status == "null" %}
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+        {% elif status == "op" %}
+        <div class="progress">
+        <div class="progress-bar" role="progressbar" style="width: 33.33%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      {% elif status == "od" %}
+      <div class="progress">
+        <div class="progress-bar" role="progressbar" style="width: 66.33%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      {% elif status == "d" %}
+      <div class="progress">
+        <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+    </div>
+{% endif %}
+
 
 {% endblock content%}

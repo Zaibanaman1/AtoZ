@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from .models import *
 from django.http import JsonResponse
-import datetime
 import json
+import datetime
+
 from . utils import cookieCart
 from django.contrib.auth.models import User,auth
 from decimal import Decimal
@@ -251,6 +252,7 @@ def processOrder(request):
         phonenumber = data['shipping']['phonenumber'],
     zipcode = data['shipping']['zipcode']
     items = order.orderitem_set.all()
+
     productmname = []
     
     for item in items:
@@ -265,7 +267,7 @@ def processOrder(request):
     disadress = str(address)  + "\n" + "landmark:"+ str(landmark) + str(city) + "\n" +  str(zipcode)
 
     
-
+    
     manager.objects.create(
         Orderm = order,
         namem = customer.name,
@@ -342,23 +344,25 @@ def profile(request):
         customer.save()
         cus = []
         cus.append(customer.name)
-        for cust in cus:
-            print(cust)
+        
+        
+        order = Order.objects.filter(customer=customer,complete=True)
+        
+        ord = order.latest('date_ordered')
+        ordid= int(ord.id) -1
+        
+        status = ord.status
+        print(status)
+        print(ord)
+        print(ordid )
+      
        
         
-
-        order,created = Order.objects.get_or_create(customer=customer,complete=False)
-        ord = list(Order.objects.filter(customer=customer)) 
-        print(ord)
-
-        items = order.orderitem_set.all()
-        
-        cartitems = order.get_cart_items
    
     else:
         pass    
 
-    context ={'ord':ord,"items":items,'cartitems':cartitems}
+    context ={'ordid':ordid,'order':order,'status':status}
    
 
     return render(request,'atoz_store/profile.html',context)    
