@@ -275,7 +275,9 @@ def processOrder(request):
         trans_id = transaction_id,
         productm =str(productmname),
         totalm = str(total),
-        adressm = disadress
+        adressm = disadress,
+        payment = data['shipping']['payment']
+
     )
 
                 
