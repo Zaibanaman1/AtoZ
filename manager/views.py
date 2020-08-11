@@ -47,7 +47,7 @@ def managerdash(request):
             ordernum =   int(dictt['ordno'])
 
             print(ordernum)
-            num = ordernum +1
+            num = ordernum 
             print(num)
             st = dictt['status']
           

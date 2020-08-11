@@ -349,7 +349,7 @@ def profile(request):
         order = Order.objects.filter(customer=customer,complete=True)
         
         ord = order.latest('date_ordered')
-        ordid= int(ord.id) -1
+        ordid= int(ord.id) 
         
         status = ord.status
         print(status)
