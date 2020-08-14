@@ -33,6 +33,7 @@
 					
             </div>
             {% for item in items%}
+            {% csrf_token %}
             <div style="flex:2"><img class="image" src="{{item.product.imageURL}}">
             </div>
             <div class="cart-column">
@@ -89,7 +90,7 @@
                     {% endif %}
                     {% endif %}   
                 </div>
-                <div style="flex:1"><p><strong>__________</strong></p></div>
+
                 <div style="flex:1"><p>Rs{{item.get_total|floatformat:2}}</p></div>
                 <img data-product={{item.product.id}}  data-action="delete" class="delete update-cart"  src="{% static  'images/x.png' %}">
             </div>
