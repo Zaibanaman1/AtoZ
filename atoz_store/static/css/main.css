@@ -75,7 +75,19 @@ h1,h2,h3,h4,h5,h6{
     max-height: 70px;
     margin-left: 330px;
 }
+.photo1{
+    padding-top: 10px;
+    max-width: 70px;
+    max-height: min-content;
+    margin-left: 260px;
 
+}
+.photo2{
+    padding-top: 10px;
+    max-width: 70px;
+    max-height: min-content;
+    margin-left: 290px;
+}
 .image{
     padding-top: 150px;
     margin-bottom: -115px;
