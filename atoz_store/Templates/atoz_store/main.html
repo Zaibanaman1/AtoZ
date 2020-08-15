@@ -58,7 +58,7 @@ console.log('cart:',cart)
     <nav id="navmain" class="navbar navbar-expand-lg navbar-light bg-light fixed-top ">
       <a class="navbar-brand" href="{% url 'store' %}">AtoZ</a>
       {% if user.is_authenticated %}
-        <p class="greet">hello, {{user.username}}</p> 
+        <p class="greet">Hello, {{user.username}}</p> 
         {% else %}
         <a href="accounts/login"class="btn btn-warning srcbtn">Register/Login</a>
        {% endif %}
