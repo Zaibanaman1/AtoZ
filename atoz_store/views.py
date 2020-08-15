@@ -15,6 +15,7 @@ def store(request):
     if request.user.is_authenticated:
         email = request.user.email
         name = request.user.first_name
+        global customer
         customer,created = Customer.objects.get_or_create(
             email=email,
         )
@@ -48,14 +49,6 @@ def store(request):
 def cart(request):
     
     if request.user.is_authenticated:
-        email = request.user.email
-        name = request.user.first_name
-        global customer
-        customer,created = Customer.objects.get_or_create(
-            email=email,
-        )
-        customer.name = name
-        customer.save()
         order,created = Order.objects.get_or_create(customer=customer,complete=False)
         items = order.orderitem_set.all()
         print(items)
@@ -106,13 +99,6 @@ def cart(request):
 
 def checkout(request):
      if request.user.is_authenticated:
-        email = request.user.email
-        name = request.user.first_name
-        customer,created = Customer.objects.get_or_create(
-            email=email,
-        )
-        customer.name = name
-        customer.save()
         order,created = Order.objects.get_or_create(customer=customer,complete=False)
         items = order.orderitem_set.all()
         cartitems = order.get_cart_items
@@ -186,11 +172,6 @@ def processOrder(request):
             
         cookieData = cookieCart(request)
         items = cookieData['items']
-        customer,created = Customer.objects.get_or_create(
-            email=email,
-        )
-        customer.name = name
-        customer.save()
         order = Order.objects.create(
             customer=customer,
             complete=False
