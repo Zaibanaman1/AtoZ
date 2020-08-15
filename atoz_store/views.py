@@ -50,6 +50,7 @@ def cart(request):
     if request.user.is_authenticated:
         email = request.user.email
         name = request.user.first_name
+        global customer
         customer,created = Customer.objects.get_or_create(
             email=email,
         )
@@ -59,7 +60,7 @@ def cart(request):
         items = order.orderitem_set.all()
         print(items)
         cartitems = order.get_cart_items
-        print(cartitems,"here we are")
+   
     
 
     else:
@@ -133,18 +134,8 @@ def user(request):
 
 def updateItem(request):
     data = json.loads(request.body)
-    print(data)
     productId = data['productId']
-    action = data['action']
-    print('Action:',action)
-    print('productId:',productId)
-    email = request.user.email
-    name = request.user.first_name
-    customer,created = Customer.objects.get_or_create(
-            email=email,
-        )
-    customer.name = name
-    customer.save()
+    action = data['action'] 
     product = Product.objects.get(id=productId)
     order, created = Order.objects.get_or_create(customer=customer, complete=False)
     orderItem, created = OrderItem.objects.get_or_create(order=order, product=product)

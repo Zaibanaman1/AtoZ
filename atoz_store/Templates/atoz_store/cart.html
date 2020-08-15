@@ -45,29 +45,17 @@
                         {% if item.product.prodtype %}
                         <p class="quantity" style="flex:1"> <strong> {{item.quantity|floatformat:3}} kg</strong></p>
                         <div class="quantity">
-                            
                             <img data-product={{item.product.id}} data-action="add" class="chg-quantity update-cart"  src="{% static  'images/arrow-up.png' %}">
                     
                             <img data-product={{item.product.id}}  data-action="remove" class="chg-quantity update-cart" src="{% static  'images/arrow-down.png' %}">
-                         
                         </div>
-                    
-                           
-                         
-                       
                         {% else %}
                         <p class="quantity"> <strong> {{item.quantity|floatformat:0}} pcs</strong></p>
                         <div class="quantity">
                             <img data-product={{item.product.id}} data-action="add" class="chg-quantity update-cart"  src="{% static  'images/arrow-up.png' %}">
                     
                             <img data-product={{item.product.id}}  data-action="remove" class="chg-quantity update-cart" src="{% static  'images/arrow-down.png' %}">
-
-                          
                         </div> 
-                
-                            
-                    
-                       
                         {% endif%}                  
                    
 
