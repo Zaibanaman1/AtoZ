@@ -69,6 +69,12 @@ h1,h2,h3,h4,h5,h6{
 	background-color: #6b8e23;
 	color: black;
 }
+.photo{
+    padding-top: 10px;
+    max-width: 70px;
+    max-height: 70px;
+    margin-left: 330px;
+}
 
 .image{
     padding-top: 150px;
