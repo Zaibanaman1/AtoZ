@@ -38,10 +38,10 @@
             </div>
            
             <div class="cart-column">
-                <div  ><strong>Name</strong><p>{{item.product.name}}</p></div>
-                <div class="pri"><strong>Price</strong><p>Rs.{{item.product.price|floatformat:2}}</p></div>
+                <div  ><strong>Name:</strong><p>{{item.product.name}}</p></div>
+                <div class="pri"><strong>Price:</strong><p>Rs.{{item.product.price|floatformat:2}}</p></div>
                 <div>
-                    <div class="pri"><strong>Qty</strong></div>
+                    <div class="pri"><strong>Qty:</strong></div>
                     {% if request.user.is_authenticated %}
                         {% if item.product.prodtype %}
                         <p class="quantity" style="flex:1"> <strong> {{item.quantity|floatformat:3}} kg</strong></p>
