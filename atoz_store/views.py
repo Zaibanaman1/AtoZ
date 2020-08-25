@@ -15,6 +15,7 @@ def store(request):
     if request.user.is_authenticated:
         email = request.user.email
         name = request.user.first_name
+        global customer
         customer,created = Customer.objects.get_or_create(
             email=email,
         )
@@ -48,18 +49,11 @@ def store(request):
 def cart(request):
     
     if request.user.is_authenticated:
-        email = request.user.email
-        name = request.user.first_name
-        customer,created = Customer.objects.get_or_create(
-            email=email,
-        )
-        customer.name = name
-        customer.save()
         order,created = Order.objects.get_or_create(customer=customer,complete=False)
         items = order.orderitem_set.all()
         print(items)
         cartitems = order.get_cart_items
-        print(cartitems,"here we are")
+   
     
 
     else:
@@ -105,13 +99,6 @@ def cart(request):
 
 def checkout(request):
      if request.user.is_authenticated:
-        email = request.user.email
-        name = request.user.first_name
-        customer,created = Customer.objects.get_or_create(
-            email=email,
-        )
-        customer.name = name
-        customer.save()
         order,created = Order.objects.get_or_create(customer=customer,complete=False)
         items = order.orderitem_set.all()
         cartitems = order.get_cart_items
@@ -133,18 +120,8 @@ def user(request):
 
 def updateItem(request):
     data = json.loads(request.body)
-    print(data)
     productId = data['productId']
-    action = data['action']
-    print('Action:',action)
-    print('productId:',productId)
-    email = request.user.email
-    name = request.user.first_name
-    customer,created = Customer.objects.get_or_create(
-            email=email,
-        )
-    customer.name = name
-    customer.save()
+    action = data['action'] 
     product = Product.objects.get(id=productId)
     order, created = Order.objects.get_or_create(customer=customer, complete=False)
     orderItem, created = OrderItem.objects.get_or_create(order=order, product=product)
@@ -195,11 +172,6 @@ def processOrder(request):
             
         cookieData = cookieCart(request)
         items = cookieData['items']
-        customer,created = Customer.objects.get_or_create(
-            email=email,
-        )
-        customer.name = name
-        customer.save()
         order = Order.objects.create(
             customer=customer,
             complete=False
@@ -275,7 +247,9 @@ def processOrder(request):
         trans_id = transaction_id,
         productm =str(productmname),
         totalm = str(total),
-        adressm = disadress
+        adressm = disadress,
+        payment = data['shipping']['payment']
+
     )
 
                 

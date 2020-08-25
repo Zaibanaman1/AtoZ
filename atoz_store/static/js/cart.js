@@ -82,8 +82,7 @@ function addCookieItem(productId,action,flag){
 
 function updateUserOrder(productId,action){
 
-    console.log(productId,action,"hulu")
-    console.log('user is logged in, sending data')  
+  
     
     
     var url = '/updateItem/'

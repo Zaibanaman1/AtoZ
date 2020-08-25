@@ -105,6 +105,7 @@ class manager(models.Model):
     adressm=models.CharField(max_length=400,null=True)
     date = models.DateTimeField(auto_now_add=True)
     totalm = models.CharField(max_length=400,null=True)
+    payment = models.CharField(max_length=10,null=True)
     
 class extendeduser(models.Model):
     phone_num=models.CharField(max_length=10,null=True)

@@ -118,13 +118,20 @@
 				'landmark':null,
 				'phonenumber':null,
 				'zipcode':null,
+				'payment':null
 			}  
 			 shippingInfo.address= form.address.value
 			 shippingInfo.city= form.city.value
 			 shippingInfo.landmark= form.landmark.value
 			 shippingInfo.phonenumber= form.phonenumber.value
 			 shippingInfo.zipcode= form.zipcode.value
-
+			 if (document.getElementById('cod').checked){
+				shippingInfo.payment= 'cod' 
+			 }
+			 else{
+				 shippingInfo.payment = 'online_payment'
+			 }
+         
 			 if(user=='AnonymousUser'){
 				 userFormData.name = form.name.value
 				 userFormData.email =form.email.value
