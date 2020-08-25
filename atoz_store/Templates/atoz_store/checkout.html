@@ -9,12 +9,16 @@
 				<h3>Order Summary</h3>
 				<hr>
 				{% for item in items %}
-				<div class="cart-row">
-					<div style="flex:2"><img class="row-image" src="{{item.product.imageURL}}" alt="not fouund"></div>
-					<div style="flex:2"><p>{{item.product.name}}</p></div>
-					<div style="flex:1"><p>Rs{{item.product.price|floatformat:2}}</p></div>
-					<div style="flex:1"><p>x{{item.quantity|floatformat:3}} Kg/piece</p></div>
-					<div style="flex:1"><p>{{item.get_total|floatformat:2}} </p></div>
+				<div class="chk cart-row">
+					<div ><p>{{item.product.name}}</p></div>
+					<div ><p>Rs{{item.product.price|floatformat:2}}</p></div>
+					{% if item.product.prodtype %}
+					<div ><p>x{{item.quantity|floatformat:3}} Kg</p></div>
+					{% else %}
+					<div ><p>x{{item.quantity|floatformat:1}} pcs</p></div>
+					{% endif %}
+					<div ><p>Rs.{{item.get_total|floatformat:2}} </p></div>
+					<strong>-----------------------------------------------</strong>
 				</div>
 				{% endfor %}
 				<h5>Items:   {{cartitems|floatformat:0}}</h5>
@@ -53,9 +57,9 @@
 					</div>
 					<div class="form-field">
 						{% if request.user.is_authenticated %}
-						<input id="phone"  class="form-control" type='tel' pattern="[0-9]{1}[0-9]{3}[0-9]{3}[0-9]{3}" name="phonenumber" maxlength="10" placeholder="801-871-832">
+						<input id="phone"  class="form-control" type='tel' pattern="[0-9]{1}[0-9]{3}[0-9]{3}[0-9]{3}" name="phonenumber" maxlength="10" placeholder="phonenumber">
 						{% else %}
-						<input id="phone" required class="form-control" type='tel' pattern="[0-9]{1}[0-9]{3}[0-9]{3}[0-9]{3}" name="phonenumber" maxlength="10" placeholder="801-871-832">
+						<input id="phone" required class="form-control" type='tel' pattern="[0-9]{1}[0-9]{3}[0-9]{3}[0-9]{3}" name="phonenumber" maxlength="10" placeholder="phonenumber">
 						{% endif %}
 					</div> 
 					<div class="form-field">

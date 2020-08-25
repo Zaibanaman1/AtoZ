@@ -365,3 +365,9 @@ div.delete{
     margin-top: 5px;
     margin-bottom: -30px;
 }
+
+div.chk{
+padding-top: 3px;    
+line-height: 3px;
+padding-bottom: 5px;
+}
