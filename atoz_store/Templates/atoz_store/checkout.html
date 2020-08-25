@@ -1,6 +1,9 @@
 {% extends 'atoz_store/main.html' %}
 {% load static %}
 {% block content %}
+<head>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
      <div class="row">
 		<div class="col-lg-6">
 			<div class="box-element">
@@ -86,7 +89,9 @@
 		</div>
 		
 	</div>
+	<div class="loader" id="loader"> </div>
 	<script type="text/javascript">
+	    document.getElementById('loader').classList.add('hidden')
 		var total ='{{order.get_cart_total|floatformat:2}}'
 		if (user !='AnonymousUser'){
 			document.getElementById('user-info').innerHTML=""
@@ -106,6 +111,7 @@
 		})
         function submitFormData(){
 			console.log('Payment button clicked')
+			document.getElementById('loader').classList.remove('hidden')
 			if (document.getElementById('cod').checked) {
 
 								
@@ -154,6 +160,7 @@
 			 .then((data) =>{
 			   console.log('success:',data);
 			   alert('transaction completed');
+			   
 			   cart = {}
 			   document.cookie = 'cart=' + JSON.stringify(cart) + ';domain=;PATH=/'
 			   window.location.href = "{% url 'store' %}"
@@ -172,7 +179,8 @@
 				document.getElementById('phone').classList.add('hidden')
 			}
 			document.getElementById('login_register').classList.add('hidden')
-				
-		   
-		   </script>
+		
+			
+			
+		</script>
 {% endblock content %}
