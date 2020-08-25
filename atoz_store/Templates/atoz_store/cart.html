@@ -82,7 +82,7 @@
 
                 <div class="tot"  style="flex:1"><p>Rs{{item.get_total|floatformat:2}}</p></div>
                 <div class="delete">
-                <img data-product={{item.product.id}} data-flagu={{item.product.flag}} data-action="delete" class="delete update-cart" src="{% static  'images/delete.png' %}"></div>
+                <img data-product={{item.product.id}}  data-action="delete" class="delete update-cart" src="{% static  'images/delete.png' %}"></div>
             </div>
             {% endfor %}
 		</div>

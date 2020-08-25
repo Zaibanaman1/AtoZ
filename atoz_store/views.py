@@ -169,7 +169,11 @@ def processOrder(request):
         print('cookies:',request.COOKIES)
         name = data['form']['name']
         email = data['form']['email']
-            
+        customer,created = Customer.objects.get_or_create(
+            email=email,
+        )
+        customer.name = name
+        customer.save()    
         cookieData = cookieCart(request)
         items = cookieData['items']
         order = Order.objects.create(
