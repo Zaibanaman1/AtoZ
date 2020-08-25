@@ -105,7 +105,7 @@ h1,h2,h3,h4,h5,h6{
     cursor: pointer;
     padding-left: 220px;
     padding-bottom: 1px;
-    padding-top: 0px;
+    padding-top: 0.5cm;
     margin-bottom:  -135px;
     border-bottom: 1px solid #ececec;
 
@@ -121,11 +121,13 @@ h1,h2,h3,h4,h5,h6{
 }
 
 .chg-quantity{
-	width: 12px;
+    width: 12px;
+    height: 8px;
 	cursor: pointer;
 	display: block;
-	margin-top: 5px;
-	transition:.1s;
+	margin-top: 2px;
+    transition:.1s;
+    margin-bottom: 0px;
 }
 
 .chg-quantity:hover{
@@ -335,4 +337,31 @@ h1,h2,h3,h4,h5,h6{
 
 div.pri{
     margin-top: -11px;
+}
+
+div.delete{
+    position: relative;
+    bottom: 3.9cm; 
+    left: 2.5cm;
+}
+
+.delete{
+    width: 20px;
+    height: 20px;
+	cursor: pointer;
+	display: block;
+	margin-top: 5px;
+	transition:.1s;
+
+}
+
+.up{
+    position: relative;
+    bottom: 0.4cm;
+    left: 0.5cm;
+}
+
+.tot{
+    margin-top: 5px;
+    margin-bottom: -30px;
 }
