@@ -93,12 +93,12 @@ h1,h2,h3,h4,h5,h6{
   .loader {
       padding: 0;
       margin: 0;
-    border: 16px solid #f3f3f3;
-    border-top: 16px solid #6b8e23; 
+    border: 14px solid #f3f3f3;
+    border-top: 14px solid #6b8e23; 
     border-radius: 50%;
-    width: 120px;
-    height: 120px;
-    margin-left: 5.5in;
+    width: 80px;
+    height: 80px;
+    margin-left: 1.2in;
     margin-top: -40ch;
     display: flex;
     animation: spin 2s linear infinite;
