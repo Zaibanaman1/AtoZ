@@ -15,7 +15,6 @@ def store(request):
     if request.user.is_authenticated:
         email = request.user.email
         name = request.user.first_name
-        global customer
         customer,created = Customer.objects.get_or_create(
             email=email,
         )
@@ -49,6 +48,10 @@ def store(request):
 def cart(request):
     
     if request.user.is_authenticated:
+        email = request.user.email
+        customer,created = Customer.objects.get_or_create(
+            email=email,
+        )
         order,created = Order.objects.get_or_create(customer=customer,complete=False)
         items = order.orderitem_set.all()
         print(items)
@@ -99,6 +102,8 @@ def cart(request):
 
 def checkout(request):
      if request.user.is_authenticated:
+        email=request.user.email
+        customer,created = Customer.objects.get_or_create(email=email,)
         order,created = Order.objects.get_or_create(customer=customer,complete=False)
         items = order.orderitem_set.all()
         cartitems = order.get_cart_items
@@ -121,8 +126,13 @@ def user(request):
 def updateItem(request):
     data = json.loads(request.body)
     productId = data['productId']
-    action = data['action'] 
+    action = data['action']
+    if request.user.is_authenticated:
+        email=request.user.email
     product = Product.objects.get(id=productId)
+    customer,created = Customer.objects.get_or_create(
+            email=email,
+        )
     order, created = Order.objects.get_or_create(customer=customer, complete=False)
     orderItem, created = OrderItem.objects.get_or_create(order=order, product=product)
     if action == 'add':
@@ -197,6 +207,11 @@ def processOrder(request):
     if request.user.is_authenticated:
         usernow=request.user
         ext = extendeduser.objects.get(user=usernow)
+        customer,created = Customer.objects.get_or_create(
+            email=email,
+        )
+        customer.name = name
+        customer.save()
         shipping.objects.create(
         customer=customer,
         Order=order,
@@ -207,6 +222,11 @@ def processOrder(request):
         zipcode = data['shipping']['zipcode'],
          )
     else:
+        customer,created = Customer.objects.get_or_create(
+            email=email,
+        )
+        customer.name = name
+        customer.save()
         shipping.objects.create(
         customer=customer,
         Order=order,
