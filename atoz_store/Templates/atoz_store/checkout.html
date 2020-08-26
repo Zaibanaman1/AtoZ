@@ -3,7 +3,10 @@
 {% block content %}
 <head>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+<div id="mydiv">
      <div class="row">
 		<div class="col-lg-6">
 			<div class="box-element">
@@ -89,7 +92,11 @@
 		</div>
 		
 	</div>
-	<div class="loader" id="loader"> </div>
+</div>
+	<div class="loader" id="loader"> 
+		
+	</div>
+
 	<script type="text/javascript">
 	    document.getElementById('loader').classList.add('hidden')
 		var total ='{{order.get_cart_total|floatformat:2}}'
@@ -111,6 +118,7 @@
 		})
         function submitFormData(){
 			console.log('Payment button clicked')
+			document.getElementById("mydiv").style.opacity="0.5";
 			document.getElementById('loader').classList.remove('hidden')
 			if (document.getElementById('cod').checked) {
 
