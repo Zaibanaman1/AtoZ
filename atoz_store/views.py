@@ -173,7 +173,7 @@ def processOrder(request):
             email=email,
         )
         customer.name = name
-        customer.save()    
+        customer.save()
         cookieData = cookieCart(request)
         items = cookieData['items']
         order = Order.objects.create(
