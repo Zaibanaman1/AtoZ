@@ -1,24 +1,33 @@
-{% extends 'atoz_store/main.html' %}
+
 {% load static %}
 {% block content %}
+<head>
+    <link rel="stylesheet" href="{% static 'css\style.css' %}">
+</head>
+<a   class="btn" href="{% url 'store' %}">Store</a>
 <div class="" align="center">
-    <form class="form" action="register" method="POST">
+    <form class="main" action="register" method="POST">
+        <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
         {% csrf_token %}
-
-        <input type="text" name="first_name" placeholder="first name"><br>
+        <p class="sign" align="center">Sign Up</p>
+        <input class="un" type="text" name="first_name" placeholder="First Name"><br>
         <br>
-        <input type="text" name="last_name" placeholder="last name"><br>
+        <input class="un" type="text" name="last_name" placeholder="Last Name"><br>
        <br>
-        <input type="text" name="username" placeholder="username"><br>
+        <input class="un" type="text" name="username" placeholder="Username"><br>
         <br>
-       <input type="email" name="email" placeholder="enter email"><br>
+       <input class="em" type="email" name="email" placeholder="Enter E-mail"><br>
        <br>
-        <input type="password" name="password1" placeholder="enter the password"><br>
+       <input class="ph" type="text" name="phone" placeholder="Phone number"><br>
+       <br>
+        <input class="pass" type="password" name="password1" placeholder="Enter the password"><br>
+        <input class="pass" type="password" name="password2" placeholder="Confirm Password"><br>
         <br>
-        <input type="password" name="password2" placeholder="enter the password again"><br>
+        
+        <button class="submit" type="submit" type="button" class="btn btn-warning">Sign Up</button><br>
         <br>
-        <button type="submit" type="button" class="btn btn-warning">sign up</button><br>
-        <a href="login">already have an account?</a>
+        <a class="a" align="center" href="login">Already have an Account?</a>
     </form>
     <div>
         {% for message in messages%}

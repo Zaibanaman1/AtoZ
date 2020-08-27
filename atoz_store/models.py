@@ -14,8 +14,16 @@ class Customer(models.Model):
         return self.name
 
 
+
 class Product(models.Model):
+    catagory_choice = (
+        ("fruit","fruit"),
+        ("dryfruit","dryfruit"),
+        ("vegitable","vegitable"),
+        ("other","other"),   
+         )
     name = models.CharField(max_length=128,null=True,)
+    catagory = models.CharField(max_length=30,choices= catagory_choice ,null=True)
     price = models.DecimalField(max_digits=7, decimal_places=2)
     image = models.ImageField(null=True,blank=True)
     prodtype =models.BooleanField(default=True)
@@ -33,8 +41,14 @@ class Product(models.Model):
    
 
 class Order(models.Model):
+    status = (
+        ("op","order processing"),
+        ("od","out for delivery"),
+        ("d","delivered"),
+         )
     customer = models.ForeignKey(Customer,on_delete=models.SET_NULL,blank=True,null=True)
-    date_ordered = models.DateTimeField(auto_now_add=True)
+    status = models.CharField(max_length=40,choices=status,null=True,default="null")
+    date_ordered = models.DateTimeField(auto_now_add=True,null=True)
     mark = models.IntegerField(default=1)
     complete = models.BooleanField(default=True,null=True,blank=False)
     transaction_id = models.CharField(max_length=128,null=True)
@@ -56,9 +70,9 @@ class Order(models.Model):
 
   
 
-class OrderItem(models.Model):
+class OrderItem(models.Model): 
     product = models.ForeignKey(Product,on_delete=models.SET_NULL,blank=True,null=True)
-    order = models.ForeignKey(Order,on_delete=models.SET_NULL,blank=True,null=True)
+    order = models.ForeignKey(Order,on_delete=models.SET_NULL,blank=True,null=True) 
     quantity = models.DecimalField(decimal_places=3,max_digits=7 ,default=0,null=True,blank=True)
     date_ordered = models.DateTimeField(auto_now_add=True)
 
@@ -69,6 +83,7 @@ class OrderItem(models.Model):
 
 
 class shipping(models.Model):
+   
     customer = models.ForeignKey(Customer,on_delete=models.SET_NULL,blank=True,null=True)
     Order = models.ForeignKey(Order,on_delete=models.SET_NULL,blank=True,null=True)
     address = models.CharField(max_length=400,null=True)
@@ -81,7 +96,7 @@ class shipping(models.Model):
         return self.address
 
 class manager(models.Model):
-    Orderm=models.CharField(max_length=1000,null=True)
+    Orderm=models.ForeignKey(Order,on_delete=models.SET_NULL,blank=True,null=True)
     namem=models.CharField(max_length=400,null=True)
     phonem=models.CharField(max_length=400,null=True)
     trans_id = models.CharField(max_length=400,null=True)
@@ -90,7 +105,14 @@ class manager(models.Model):
     adressm=models.CharField(max_length=400,null=True)
     date = models.DateTimeField(auto_now_add=True)
     totalm = models.CharField(max_length=400,null=True)
+    payment = models.CharField(max_length=10,null=True)
     
+class extendeduser(models.Model):
+    phone_num=models.CharField(max_length=10,null=True)
+    user=models.OneToOneField(User,on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return self.phone_num
 
 
     

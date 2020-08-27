@@ -1,9 +1,11 @@
 import json
 from . models import *
+from decimal import Decimal
 
 def cookieCart(request):
     try:
         cart = json.loads(request.COOKIES['cart'])
+        print(cart)
             
     except:
         cart = {}
@@ -13,11 +15,12 @@ def cookieCart(request):
         
     for  i  in cart:
         try:
-            cartitems += cart[i]['quantity']
+            cartitems += 1
+            print(cartitems)
             product = Product.objects.get(id=i)
-            total = (product.price * cart[i]['quantity'])
+            total = (product.price * Decimal(cart[i]['quantity']))
             order['get_cart_total'] +=  total
-            order['get_cart_items'] +=  cart[i]['quantity']
+            order['get_cart_items'] +=  cartitems
             item ={
                 'product':{
                     'id':product.id,
@@ -25,7 +28,7 @@ def cookieCart(request):
                     'price':product.price,
                     'imageURL':product.imageURL,
                 },
-                'quantity':cart[i]['quantity'],
+                'quantity': cart[i]['quantity'],
                 'get_total':total
                 }
             items.append(item)
@@ -62,3 +65,5 @@ def billingsum(request):
             except:
                 pass
     print(items)   
+
+

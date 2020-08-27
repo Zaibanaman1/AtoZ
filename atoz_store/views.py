@@ -1,21 +1,17 @@
 from django.shortcuts import render
 from .models import *
 from django.http import JsonResponse
-import datetime
 import json
+import datetime
+
 from . utils import cookieCart
 from django.contrib.auth.models import User,auth
 from decimal import Decimal
+import pytz
+from django.db.models import Q
 
 # Create your views here.
 def store(request):
-    products = Product.objects.all()
-    context = {'products':products}
-    return render(request ,'atoz_store/store.html',context)
-
-
-def cart(request):
-    
     if request.user.is_authenticated:
         email = request.user.email
         name = request.user.first_name
@@ -24,9 +20,43 @@ def cart(request):
         )
         customer.name = name
         customer.save()
+      
+        order,created = Order.objects.get_or_create(customer=customer,complete=False)
+        items= order.orderitem_set.all()
+        cartItems = order.get_cart_items
+    else:
+        try:
+            cart = json.loads(request.COOKIES['cart'])
+            
+        except:
+            cart = {}
+        items = []
+        order = {'get_cart_total':0,'get_cart_items':0}
+        cartItems = order['get_cart_items']
+        print(cartItems)
+        
+        for  i  in cart:
+            try:
+                cartItems += 1
+            except:pass    
+
+    products = Product.objects.all()
+    context = {'products':products,'cartItems':cartItems}
+    return render(request ,'atoz_store/store.html',context)
+
+
+def cart(request):
+    
+    if request.user.is_authenticated:
+        email = request.user.email
+        customer,created = Customer.objects.get_or_create(
+            email=email,
+        )
         order,created = Order.objects.get_or_create(customer=customer,complete=False)
         items = order.orderitem_set.all()
+        print(items)
         cartitems = order.get_cart_items
+   
     
 
     else:
@@ -38,22 +68,24 @@ def cart(request):
         items = []
         order = {'get_cart_total':0,'get_cart_items':0}
         cartitems = order['get_cart_items']
+        print(cartitems)
         
         for  i  in cart:
             try:
-                cartitems += Decimal(cart[i]['quantity'])
+                cartitems += 1
+               
                 product = Product.objects.get(id=i)
                 Flag = product.prodtype
                 total = (product.price * Decimal(cart[i]['quantity']))
                 order['get_cart_total'] +=  total
-                order['get_cart_items'] +=  cart[i]['quantity']       
+                order['get_cart_items'] =cartitems    
                 item ={
                         'product':{
                         'id':product.id,
                         'name':product.name,
                         'price':product.price,
                         'imageURL':product.imageURL,
-                        'flag':'True',
+                        'flag':Flag,
                         
                     },
                     'quantity':cart[i]['quantity'],
@@ -70,18 +102,14 @@ def cart(request):
 
 def checkout(request):
      if request.user.is_authenticated:
-        email = request.user.email
-        name = request.user.first_name
-        customer,created = Customer.objects.get_or_create(
-            email=email,
-        )
-        customer.name = name
-        customer.save()
+        email=request.user.email
+        customer,created = Customer.objects.get_or_create(email=email,)
         order,created = Order.objects.get_or_create(customer=customer,complete=False)
         items = order.orderitem_set.all()
         cartitems = order.get_cart_items
      else:
         cookieData = cookieCart(request)
+        print(cookieData)
         cartitems = cookieData['cartitems']
         order = cookieData['order']
         items = cookieData['items']
@@ -99,16 +127,12 @@ def updateItem(request):
     data = json.loads(request.body)
     productId = data['productId']
     action = data['action']
-    print('Action:',action)
-    print('productId:',productId)
-    email = request.user.email
-    name = request.user.first_name
+    if request.user.is_authenticated:
+        email=request.user.email
+    product = Product.objects.get(id=productId)
     customer,created = Customer.objects.get_or_create(
             email=email,
         )
-    customer.name = name
-    customer.save()
-    product = Product.objects.get(id=productId)
     order, created = Order.objects.get_or_create(customer=customer, complete=False)
     orderItem, created = OrderItem.objects.get_or_create(order=order, product=product)
     if action == 'add':
@@ -121,6 +145,9 @@ def updateItem(request):
             orderItem.quantity = (orderItem.quantity - Decimal(0.25) )
         else:            
             orderItem.quantity = (orderItem.quantity - Decimal(1.00) )
+            
+    else:
+        orderItem.quantity = 0       
     orderItem.save()
 
     if orderItem.quantity <= 0:
@@ -129,7 +156,9 @@ def updateItem(request):
     return JsonResponse(" ",safe=False)
 
 def processOrder(request):
-    transaction_id = datetime.datetime.now().time()
+    ist = pytz.timezone("Asia/Calcutta")
+    print(ist)
+    transaction_id = datetime.datetime.now(ist).time()
     data = json.loads(request.body)
     print('Data:',request.body)
     if request.user.is_authenticated:
@@ -150,13 +179,13 @@ def processOrder(request):
         print('cookies:',request.COOKIES)
         name = data['form']['name']
         email = data['form']['email']
-        cookieData = cookieCart(request)
-        items = cookieData['items']
         customer,created = Customer.objects.get_or_create(
             email=email,
         )
         customer.name = name
         customer.save()
+        cookieData = cookieCart(request)
+        items = cookieData['items']
         order = Order.objects.create(
             customer=customer,
             complete=False
@@ -170,10 +199,35 @@ def processOrder(request):
             )
     total = float(data['form']['total'])
     order.transaction_id = transaction_id
+
     if total == order.get_cart_total:
             order.complete=True
     order.save()
-    shipping.objects.create(
+    
+    if request.user.is_authenticated:
+        usernow=request.user
+        ext = extendeduser.objects.get(user=usernow)
+        customer,created = Customer.objects.get_or_create(
+            email=email,
+        )
+        customer.name = name
+        customer.save()
+        shipping.objects.create(
+        customer=customer,
+        Order=order,
+        address=data['shipping']['address'],
+        city = data['shipping']['city'],
+        landmark = data['shipping']['landmark'],
+        phonenumber = ext.phone_num,
+        zipcode = data['shipping']['zipcode'],
+         )
+    else:
+        customer,created = Customer.objects.get_or_create(
+            email=email,
+        )
+        customer.name = name
+        customer.save()
+        shipping.objects.create(
         customer=customer,
         Order=order,
         address=data['shipping']['address'],
@@ -181,14 +235,20 @@ def processOrder(request):
         landmark = data['shipping']['landmark'],
         phonenumber = data['shipping']['phonenumber'],
         zipcode = data['shipping']['zipcode'],
-         )
+         )     
     name = data['form']['name']
     address=data['shipping']['address'],
     city = data['shipping']['city'],
     landmark = data['shipping']['landmark'],
-    phonenumber = data['shipping']['phonenumber'],
+    
+    if request.user.is_authenticated:
+        phonenumber=ext.phone_num
+        print(phonenumber)
+    else:
+        phonenumber = data['shipping']['phonenumber'],
     zipcode = data['shipping']['zipcode']
     items = order.orderitem_set.all()
+
     productmname = []
     
     for item in items:
@@ -203,7 +263,7 @@ def processOrder(request):
     disadress = str(address)  + "\n" + "landmark:"+ str(landmark) + str(city) + "\n" +  str(zipcode)
 
     
-
+    
     manager.objects.create(
         Orderm = order,
         namem = customer.name,
@@ -211,12 +271,98 @@ def processOrder(request):
         trans_id = transaction_id,
         productm =str(productmname),
         totalm = str(total),
-        adressm = disadress
+        adressm = disadress,
+        payment = data['shipping']['payment']
+
     )
 
                 
     return JsonResponse("payment submitted", safe = False)
 
-#def search(request):
+def search(request):
+    if request.user.is_authenticated:
+        email = request.user.email
+        name = request.user.first_name
+        customer,created = Customer.objects.get_or_create(
+            email=email,
+        )
+        customer.name = name
+        customer.save()
+        cus = []
+        cus.append(customer.name)
+        for cust in cus:
+            print(cust)
+       
+        
+
+        order,created = Order.objects.get_or_create(customer=customer,complete=False)
+        ord = list(Order.objects.filter(customer=customer)) 
+        print(ord)
+
+        items = order.orderitem_set.all()
+        
+        cartItems = order.get_cart_items
+    else:
+        try:
+            cart = json.loads(request.COOKIES['cart'])
+            
+        except:
+            cart = {}
+        items = []
+        order = {'get_cart_total':0,'get_cart_items':0}
+        cartItems = order['get_cart_items']
+        print(cartItems)
+        
+        for  i  in cart:
+            try:
+                cartItems += 1
+            except:pass 
+            
+    if request.method =="POST":
+        srch = request.POST["search"]
+
+        if srch:
+            products = Product.objects.all()
+            match = Product.objects.filter(  Q(catagory__startswith=srch)|Q(name__startswith=srch) )
+            print(match)
+            if match:
+                return render(request,'atoz_store/search.html',{'sr':match,'products':products,'cartItems':cartItems})
+
+
+    return render(request ,'atoz_store/search.html')
     
+def profile(request):
+    if request.user.is_authenticated:
+        email = request.user.email
+        name = request.user.first_name
+        customer,created = Customer.objects.get_or_create(
+            email=email,
+        )
+        customer.name = name
+        customer.save()
+        cus = []
+        cus.append(customer.name)
+        
+        
+        order = Order.objects.filter(customer=customer,complete=True)
+        
+        ord = order.latest('date_ordered')
+        ordid= int(ord.id) 
+        
+        status = ord.status
+        print(status)
+        print(ord)
+        print(ordid )
+      
+       
+        
+   
+    else:
+        pass    
+
+    context ={'ordid':ordid,'order':order,'status':status}
+   
+
+    return render(request,'atoz_store/profile.html',context)    
+
     
