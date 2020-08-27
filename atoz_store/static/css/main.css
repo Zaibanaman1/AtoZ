@@ -1,6 +1,8 @@
 .body{
     background-color:white;
+    font-family: 'Ubuntu', sans-serif;
 }
+
 
 h1,h2,h3,h4,h5,h6{
 	color:hsl(0, 0%, 30%);
@@ -11,8 +13,17 @@ h1,h2,h3,h4,h5,h6{
 	background-color: #fff;
 	border-radius: 4px;
 	padding: 10px;
-	
+	font-family: 'Ubuntu', sans-serif;
+}
+.sticky{
+    
+    background-color: #fff;
+}
 
+
+.delete{
+    width: 1cm;
+    height: 1cm;
 }
 
 .thumbnail{
@@ -28,7 +39,7 @@ h1,h2,h3,h4,h5,h6{
 }
 
 .bg-dark{
-	background-color:grey;
+	background-color:#fff;
 }
 
 #cart-icon{
@@ -54,14 +65,49 @@ h1,h2,h3,h4,h5,h6{
 }
 
 .btn{
-	border-radius: 60;
-	background-color: #fcd12a;
+	border-radius: 5em;
+	background-color: #6b8e23;
 	color: black;
 }
-
-.row-image{
-	width: 100px;
+.photo{
+    max-width: 30px;
+    max-height: min-content;
+    margin-left: 90px;
 }
+.photo1{
+    max-width: 30px;
+    max-height: min-content;
+    margin-left: 70px;
+
+}
+.photo2{
+    max-width: 30px;
+    max-height: min-content;
+    margin-left: 60px;
+}
+.image{
+    padding-top: 150px;
+    margin-bottom: -115px;
+	width: 200px;
+}
+  .loader {
+      padding: 0;
+      margin: 0;
+    border: 14px solid #f3f3f3;
+    border-top: 14px solid #6b8e23; 
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    margin-left: 1.2in;
+    margin-top: -40ch;
+    display: flex;
+    animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
 
 .form-field{
 	width:250px;
@@ -69,12 +115,15 @@ h1,h2,h3,h4,h5,h6{
 	padding: 5px;
 }
 
-.cart-row{
-	display: flex;
-    align-items: flex-stretch;
-    padding-bottom: 10px;
-    margin-bottom: 10px;
+.cart-column{
+    line-height: 15px;
+    cursor: pointer;
+    padding-left: 220px;
+    padding-bottom: 1px;
+    padding-top: 0.5cm;
+    margin-bottom:  -135px;
     border-bottom: 1px solid #ececec;
+
 
 }
 
@@ -87,11 +136,13 @@ h1,h2,h3,h4,h5,h6{
 }
 
 .chg-quantity{
-	width: 12px;
+    width: 12px;
+    height: 8px;
 	cursor: pointer;
 	display: block;
-	margin-top: 5px;
-	transition:.1s;
+	margin-top: 2px;
+    transition:.1s;
+    margin-bottom: 0px;
 }
 
 .chg-quantity:hover{
@@ -104,10 +155,14 @@ h1,h2,h3,h4,h5,h6{
 }
 
 .btn:hover{
-	background-color: #5cb85c;
+	background-color: #fcd12a;
 	box-shadow: 0 5px 15px rgba(32, 202, 108, 0.4);
 	  
 }
+.srcbtn{
+    background-color: #fcd12a;
+}
+
 
 .col-lg-4{
 	padding-top: 10px;
@@ -124,12 +179,14 @@ h1,h2,h3,h4,h5,h6{
 .main {
         background-color: honeydew;
         width: 400px;
-        height: 400px;
+        height: 420px;
         margin: 7em auto;
         border-radius: 1.5em;
         box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
     }
     
+    
+  
     .sign {
         padding-top: 40px;
         color: grey;
@@ -192,14 +249,14 @@ h1,h2,h3,h4,h5,h6{
       cursor: pointer;
         border-radius: 5em;
         color: #fff;
-        background: linear-gradient(to right,#fcd12a,#fcd12a );
-        border: 0;
-        padding-left: 40px;
-        padding-right: 40px;
+        background: linear-gradient(to right,#6b8e23,#6b8e23 );
+        border: 1;
+        padding-left: 30px;
+        padding-right: 30px;
         padding-bottom: 10px;
         padding-top: 10px;
         font-family: 'Ubuntu', sans-serif;
-        margin-left: 35%;
+        margin-left: 5%;
         font-size: 13px;
         box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
     }
@@ -210,7 +267,7 @@ h1,h2,h3,h4,h5,h6{
         padding-top: 15px;
     }
     
-    a {
+    .a {
         text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
         color: grey;
         text-decoration: none
@@ -239,3 +296,93 @@ h1,h2,h3,h4,h5,h6{
       
 }
 
+#jmb{
+    background-color: gray;
+}
+
+#slider{
+    overflow: hidden;
+}
+#slider figure {
+    position: relative;
+    width: 100%;
+    margin: 0;
+    left: 0;
+    animation: slider 15s infinite;
+}
+#slider figure img{
+    width: 50%;
+    float: left;
+}
+
+@keyframes slider {
+    
+ 0% {
+     left: 0;
+ }
+
+ 20% {
+     left: 0;
+ }
+ 25%{
+    left: -100% ;
+ }
+
+ 45%{
+     left: -100%;
+ }
+ 50%{
+     left: -200%;
+ }
+ 70%{
+     left:-200%;
+ }
+ 75%{
+     left: -300%;
+ }
+ 
+95%{
+    left: -300%;
+}
+100%{
+    left:-400% ;
+}
+
+}
+
+div.pri{
+    margin-top: -11px;
+}
+
+div.delete{
+    position: relative;
+    bottom: 3.9cm; 
+    left: 2.5cm;
+}
+
+.delete{
+    width: 20px;
+    height: 20px;
+	cursor: pointer;
+	display: block;
+	margin-top: 5px;
+	transition:.1s;
+
+}
+
+.up{
+    position: relative;
+    bottom: 0.4cm;
+    left: 0.5cm;
+}
+
+.tot{
+    margin-top: 5px;
+    margin-bottom: -30px;
+}
+
+div.chk{
+padding-top: 3px;    
+line-height: 3px;
+padding-bottom: 5px;
+}

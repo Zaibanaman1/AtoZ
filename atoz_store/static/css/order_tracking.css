@@ -17,7 +17,11 @@ body {
 
 .top {
     padding-top: 40px;
+<<<<<<< HEAD
     padding-left: 13% !important;
+=======
+    padding-left: 20% !important;
+>>>>>>> test1
     padding-right: 13% !important
 }
 
@@ -25,7 +29,11 @@ body {
     margin-bottom: 30px;
     overflow: hidden;
     color: #455A64;
+<<<<<<< HEAD
     padding-left: 0px;
+=======
+    padding-left: 30px;
+>>>>>>> test1
     margin-top: 30px
 }
 
@@ -64,7 +72,11 @@ body {
     position: absolute;
     left: 0;
     top: 16px;
+<<<<<<< HEAD
     z-index: -1
+=======
+    z-index: -1;
+>>>>>>> test1
 }
 
 #progressbar li:last-child:after {
@@ -105,12 +117,26 @@ body {
     font-family: FontAwesome;
     content: "\f00c"
 }
+<<<<<<< HEAD
 
 .icon {
     width: 60px;
     height: 60px;
     margin-right: 15px
 }
+=======
+.box-element{
+    background-color: #ECEFF1;
+}
+.icon {
+    width: 40px;
+    height: 60px;
+    margin-right: 15px
+}
+ul li{
+    width: 200px
+}
+>>>>>>> test1
 
 .icon-content {
     padding-bottom: 20px
@@ -118,6 +144,10 @@ body {
 
 @media screen and (max-width: 992px) {
     .icon-content {
+<<<<<<< HEAD
         width: 50%
+=======
+        width: 30%
+>>>>>>> test1
     }
 }
