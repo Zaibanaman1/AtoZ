@@ -55,7 +55,7 @@ ROOT_URLCONF = 'atoz.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ["/tmp/git-2.18.0/git-repo/AtoZ/atoz_store/Templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
