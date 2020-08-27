@@ -98,7 +98,7 @@ def cart(request):
                 pass
    
     context = {'items':items,'order':order,'cartitems':cartitems}
-    return render(request,'atoz_Store/cart.html',context)
+    return render(request,'atoz_store/cart.html',context)
 
 def checkout(request):
      if request.user.is_authenticated:
