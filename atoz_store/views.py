@@ -333,36 +333,53 @@ def search(request):
     
 def profile(request):
     if request.user.is_authenticated:
-        email = request.user.email
-        name = request.user.first_name
-        customer,created = Customer.objects.get_or_create(
+        try:
+            email = request.user.email
+            name = request.user.first_name
+            customer,created = Customer.objects.get_or_create(
             email=email,
-        )
-        customer.name = name
-        customer.save()
-        cus = []
-        cus.append(customer.name)
+            )
+            customer.name = name
+            customer.save()
+            cus = []
+            cus.append(customer.name)
         
         
-        order = Order.objects.filter(customer=customer,complete=True)
+            order = Order.objects.filter(customer=customer,complete=True)
         
-        ord = order.latest('date_ordered')
-        ordid= int(ord.id) 
+            ord = order.latest('date_ordered')
+            ordid= int(ord.id) 
         
-        status = ord.status
-        print(status)
-        print(ord)
-        print(ordid )
-      
+            status = ord.status
+            print(status)
+            print(ord)
+            print(ordid )
+        except:
+            pass
+              
        
         
    
     else:
         pass    
-
-    context ={'ordid':ordid,'order':order,'status':status}
-   
-
-    return render(request,'atoz_store/profile.html',context)    
-
     
+   
+   
+    try:
+        context ={'ordid':ordid,'order':order,'status':status}
+        return render(request,'atoz_store/profile.html',context)    
+    except:
+        return render(request,'atoz_store/profileexcept.html')
+
+def orderhistory(request):
+    if request.user.is_authenticated:
+           email = request.user.email
+           name = request.user.first_name
+           customer,created = Customer.objects.get_or_create(
+           email=email,
+            )
+           order = Order.objects.filter(customer=customer,complete=True)
+           for ord in order:
+               print(ord)
+
+    return render(request,'atoz_store/orderhistory.html',{"order":order})
