@@ -19,16 +19,6 @@ h1,h2,h3,h4,h5,h6{
     
     background-color: #fff;
 }
-.messages{
-    color: red;
-}
-.errorlist
-    {
-        color: red;
-    }
-    .error input, .error select {
-        border: 2px red solid;
-        }
 .delete{
     width: 1cm;
     height: 1cm;
@@ -377,7 +367,6 @@ div.delete{
 	transition:.1s;
 
 }
-
 .up{
     position: relative;
     bottom: 0.4cm;
