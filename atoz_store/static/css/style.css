@@ -21,6 +21,9 @@
         font-weight: bold;
         font-size: 23px;
     }
+    .alert-info{
+        color: red;
+    }
     
     .btn{
     cursor: pointer;
