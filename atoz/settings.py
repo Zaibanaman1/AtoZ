@@ -24,10 +24,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = "&hd)hp#i^lu=6pb50u4eu02#h$u3sfbyzo@_ik(csh#pk0wm$v"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG =False
+DEBUG =True
 
 
-ALLOWED_HOSTS = ["31.220.55.66","www.atozfreshbazaar.in","atozfreshbazaar.in"]
+ALLOWED_HOSTS = ["31.220.55.66","www.atozfreshbazaar.in","atozfreshbazaar.in","192.168.0.177"]
 
 
 # Application definition
