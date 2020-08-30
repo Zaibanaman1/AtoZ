@@ -20,14 +20,14 @@ def register(request):
         email= request.POST['email']
         if password1==password2:
             if User.objects.filter(username=username).exists():
-                messages.info(request,"username taken")
+                messages.info(request,"Username taken")
                 return redirect('register')
             if username=="" or password1=="":
-                messages.info(request,"please fill all the fields ")
+                messages.info(request,"Please fill all the fields ")
                 return redirect('register')
 
             elif User.objects.filter(email=email).exists():
-                messages.info(request,"email taken")
+                messages.info(request,"E-mail taken")
                 return redirect('register')
            
             else:
@@ -35,13 +35,14 @@ def register(request):
                 user.save()
                 extended = extendeduser(phone_num=phone_no,user=user)
                 extended.save()
+                messages.success(request, 'You have been successfully signed in!')
                 print('user created')
 
                 return redirect("login")
 
         else:
 
-            messages.info(request,"password did not match")
+            messages.info(request,"Password did not match")
             return redirect('register')
    
         return redirect("/")
@@ -59,7 +60,7 @@ def login(request):
               auth.login(request,user)
               return redirect("/")
           else:
-              messages.info(request,"invalid credentials")
+              messages.info(request,"Invalid credentials")
               return redirect('login')
 
     else:
