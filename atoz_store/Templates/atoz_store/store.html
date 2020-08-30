@@ -4,11 +4,16 @@
 <br>
 <br>
 <br>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<div class="page-wrapper">
 <div>
 	<form class="form-inline my-2 my-lg-0" method="post" action="search">
 		 {% csrf_token %}
-		<input class="form-control mr-sm-2" name="search" type="search" placeholder="Search" aria-label="Search">
-		<button class="srcbtn btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+		<input class="form-control mr-sm-2" name="search" type="search" placeholder="Search for fruits,vegies..." aria-label="Search">
+		<button class="srcbtn btn btn-outline-success my-2 my-sm-0 fa fa-search" type="submit"></button>
 	  </form>
   <br>
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -70,8 +75,44 @@
 			</div>
 		</div>
 		 {% endfor %}
-		 
+		
 	</div>
-	
+</div>
+	<div class="footer">
+		<div class="footer-content">
+			<div class="footer-section about">
+				<h1 class="logo-text"><span>AtoZ</span>Freshbazaar</h1>
+<p>
+	TF2, 7th Cross Rd, Gangaparameshwari Nagar, Kodichikknahalli, Vijaya Bank Layout, Bilekahalli, Bengaluru, Karnataka 560076
+</p>
+<div class="contact">
+	<span><i class="fa fa-phone"></i> &nbsp;+91 9035592473 </span>
+	<br>
+	<span><i class="fa fa-envelope"></i> &nbsp;atozfreshbazaar@gmail.com </span>
+</div>
+<div class="social">
+	<a href=""><i class="fa fa-facebook"></i></a>
+	<a href=""><i class="fa fa-instagram"></i></a>
+</div>
+			<div class="footer-section Contact-form">
+				<h2>Contact Us</h2>
+				<br>
+				<form action="" method="POST">
+					<input type="email" name="email" class="text-input contact-input" placeholder="Your Email address...">
+					<br>
+					<textarea name="message" class="text-input contact-input" placeholder="Your message...."></textarea>
+					<br>
+				  <button type="submit" class="btn btn-big">
+					 <a> <i class="fa fa-envelope"></i></a>
+					  Send
+				  </button>
+				</form>
+			</div>
+		</div>
+		</div>
+		<div class="footer-bottom">
+		Project developed and managed by ZSQUARE 
+		</div>
+	</div>
 
 {% endblock content %}
