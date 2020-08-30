@@ -1,7 +1,7 @@
 
 {% load static %}
 {% block content %}
-<head> 
+<head>
     <link rel="stylesheet" href="{% static 'css/login.css' %}">
 </head>
 <a   class="btn" href="{% url 'store' %}">Store</a>
@@ -25,9 +25,10 @@
 
     <div>
         {% for message in messages%}
-        <h5>{{message}}</h5>
-        {% endfor %}
-    
+        <div class="alert alert-danger msg" role="alert">
+            {{message}}
+          </div>
+          {% endfor %}
     </div>
 
     </div>

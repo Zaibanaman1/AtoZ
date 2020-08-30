@@ -31,7 +31,9 @@
     </form>
     <div>
         {% for message in messages%}
-        <h5>{{message}}</h5>
+        <div class="alert alert-info msg" role="alert">
+            {{message}}
+          </div>
         {% endfor %}
     
     </div>

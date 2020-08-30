@@ -21,6 +21,15 @@
         font-weight: bold;
         font-size: 23px;
     }
+    div.msg{
+        padding: 20px;
+        background-color: #fcd12a; /* Red */
+        color: black;
+        margin-top: -110px;
+        position: relative;
+        margin-left: 20px;
+
+    }
     
     .btn{
     cursor: pointer;
@@ -37,7 +46,8 @@
     font-weight: bolder;
     margin-left: 20px;
     margin-right: 55px;
-    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
     font-size: 13px;
     box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
 }
