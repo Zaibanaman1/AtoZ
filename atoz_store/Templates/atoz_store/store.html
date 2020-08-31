@@ -24,7 +24,7 @@
 	</ol>
 	<div class="carousel-inner">
 	  <div class="carousel-item active">
-		<img src="{% static  'images/capture4.png' %}"  class="d-block w-100" alt="...">
+		<img id="dry" src="{% static  'images/capture4.png' %}"  class="d-block w-100" alt="...">
 	  </div>
 	  <div class="carousel-item">
 		<img src="{% static  'images/capture3.png' %}" class="d-block w-100" alt="...">
@@ -65,11 +65,15 @@
 			<img class="thumbnail" src="{{product.imageURL}}" alt="not found">
 			<div  class="box-element product">
 
-				<h6><strong>{{product.name}}</strong></h6>
-				<hr>
+				<h6><strong>{{product.name}}</strong>                                                                                                               {{product.type}}</h6>
+				<h6>
 
 				<button id="addToCart" data-product="{{product.id}}"  data-flagu="{{product.prodtype}}" data-action="add"  class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
-				<a class="btn btn-outline-success" href="#">View</a>
+			  <form class="btn-v" method="POST" action="view">
+				  {% csrf_token %}
+				  <label for="pro"></label>
+				  <input name="pro" type="hidden" class="hidden" value={{product.id}} ><button  type="submit" class="btn view btn-outline-success" data-product="{{product.id}}">View</button>
+				</form>	
 				<h4 style="display: inline-block; float: right"><strong>RS.{{ product.price|floatformat:2}}</strong></h4>
 
 			</div>
@@ -128,4 +132,6 @@
 		
 	  })
 </script>
+{% endblock content %}
+
 {% endblock content %}
