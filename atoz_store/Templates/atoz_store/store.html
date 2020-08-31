@@ -58,9 +58,9 @@
   <br>
   <br>
 
-	<div class="row">
+	<div class="row container content">
 		{% for product in products %}
-		<div id="eachproduct"   class="col-lg-4">
+		<div id="eachproduct"   class="col-lg-4 content">
 			
 			<img class="thumbnail" src="{{product.imageURL}}" alt="not found">
 			<div  class="box-element product">
@@ -75,7 +75,7 @@
 			</div>
 		</div>
 		 {% endfor %}
-		
+		 <a href="#" id="loadMore">Load More</a>
 	</div>
 </div>
 	<div class="footer">
@@ -98,6 +98,7 @@
 				<h2>Contact Us</h2>
 				<br>
 				<form action="" method="POST">
+					{% csrf_token %}
 					<input type="email" name="email" class="text-input contact-input" placeholder="Your Email address...">
 					<br>
 					<textarea name="message" class="text-input contact-input" placeholder="Your message...."></textarea>
@@ -114,5 +115,17 @@
 		Project developed and managed by ZSQUARE 
 		</div>
 	</div>
-
+<script>
+	$(document).ready(function(){
+		$(".content").slice(0, 4).show();
+		$("#loadMore").on("click", function(e){
+		  e.preventDefault();
+		  $(".content:hidden").slice(0, 4).slideDown();
+		  if($(".content:hidden").length == 0) {
+			$("#loadMore").text("No Content").addClass("noContent");
+		  }
+		});
+		
+	  })
+</script>
 {% endblock content %}
