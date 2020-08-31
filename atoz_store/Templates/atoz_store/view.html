@@ -1,0 +1,31 @@
+{% extends 'atoz_store/main.html' %}
+{% load static %}
+{% block content %}
+
+    {% for prod in product %}
+    <div id="eachproduct"   class="col-lg-4">
+        
+        <img class="thumbnail" src="{{prod.imageURL}}" alt="not found">
+        <div  class="box-element product">
+
+            <h6><strong>{{prod.name}}</strong></h6>
+            
+            <hr>
+
+            <button id="addToCart" data-product="{{prod.id}}"  data-flagu="{{product.prodtype}}" data-action="add"  class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
+         
+            <h4 style="display: inline-block; float: right"><strong>RS.{{ prod.price|floatformat:2}}</strong></h4>
+            <br>
+            <br>
+            
+            <hr>
+        </div>
+        <div class="desc">
+        
+             <p>{{prod.discription}}</p>
+        
+    </div>
+     {% endfor %}
+
+
+{% endblock content%}

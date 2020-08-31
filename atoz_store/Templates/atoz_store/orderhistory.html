@@ -1,0 +1,29 @@
+{% extends 'atoz_store/main.html' %}
+{% load static %}
+{% block content %}
+<br>
+<br>
+<br>
+<br>
+<table  class="table table-striped table-sm">
+    <thead>
+      <tr>
+        <th  scope="col">ordernumber</th>
+        <th  scope="col">order details</th>
+        <th  scope="col">address</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+      </tr>
+      {% for ord in order %}
+      <tr>
+        <td>{{ord.id}}</td>
+        {% for ord in orditem%}
+        <td>{{ord.product.name}}</td>
+        {% endfor%}
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock content%}

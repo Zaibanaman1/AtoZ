@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -20,12 +21,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '&hd)hp#i^lu=6pb50u4eu02#h$u3sfbyzo@_ik(csh#pk0wm$v'
+SECRET_KEY = "&hd)hp#i^lu=6pb50u4eu02#h$u3sfbyzo@_ik(csh#pk0wm$v"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG =True
 
-ALLOWED_HOSTS = ["*"]
+
+ALLOWED_HOSTS = ["31.220.55.66","www.atozfreshbazaar.in","atozfreshbazaar.in","127.0.0.1"]
 
 
 # Application definition
@@ -55,7 +57,7 @@ ROOT_URLCONF = 'atoz.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ["/home/zaibanaman/AtoZ/AtoZ/atoz_store/Templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -119,12 +121,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR,'static/')
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR,'static'),
-    '/var/www/static/',
-]
 
 MEDIA_URL = '/images/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'static/images/') 
 
-MEDIA_ROOT = os.path.join(BASE_DIR,'static/images') 
