@@ -22,6 +22,12 @@ class Product(models.Model):
         ("vegitable","vegitable"),
         ("other","other"),   
          )
+    sell_choice =(
+        ("/pcs","/peice"),
+        ("/kgs","/kgs")
+    )     
+    discription = models.CharField(max_length=500,null=True)
+    type =  models.CharField(max_length=30,choices=sell_choice,null=True)
     name = models.CharField(max_length=128,null=True,)
     catagory = models.CharField(max_length=30,choices= catagory_choice ,null=True)
     price = models.DecimalField(max_digits=7, decimal_places=2)

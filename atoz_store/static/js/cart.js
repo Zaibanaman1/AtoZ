@@ -1,7 +1,6 @@
 var updateBtns = document.getElementsByClassName('update-cart')
 var setstatus = document.getElementsByClassName('setstatus')
 
-
         
     
 
@@ -106,3 +105,4 @@ function updateUserOrder(productId,action){
 
     }
    
+    

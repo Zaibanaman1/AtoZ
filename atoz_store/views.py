@@ -383,3 +383,13 @@ def orderhistory(request):
                print(ord)
 
     return render(request,'atoz_store/orderhistory.html',{"order":order})
+
+def view(request):
+    if request.method == "POST":
+        productid = request.POST['pro']
+        product = Product.objects.filter(id=productid)
+        print(product)
+
+        
+    return render(request,'atoz_store/view.html',{"product":product})
+    

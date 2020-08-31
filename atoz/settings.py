@@ -27,7 +27,7 @@ SECRET_KEY = "&hd)hp#i^lu=6pb50u4eu02#h$u3sfbyzo@_ik(csh#pk0wm$v"
 DEBUG =True
 
 
-ALLOWED_HOSTS = ["31.220.55.66","www.atozfreshbazaar.in","atozfreshbazaar.in","192.168.0.177"]
+ALLOWED_HOSTS = ["31.220.55.66","www.atozfreshbazaar.in","atozfreshbazaar.in","127.0.0.1"]
 
 
 # Application definition
