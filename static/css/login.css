@@ -52,6 +52,12 @@ body {
     margin-bottom: 27px;
     font-family: 'Ubuntu', sans-serif;
     }
+    div.msg{
+        padding: 20px;
+        background-color: #f44336; /* Red */
+        color: white;
+        margin-bottom: 15px;                
+    }
     .pass {
         width: 76%;
 color: black;
