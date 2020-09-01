@@ -17,18 +17,17 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
-# Quick-start development settings - unsuitable for production
+# Quick-start development settings - unsuitable for production1
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = "&hd)hp#i^lu=6pb50u4eu02#h$u3sfbyzo@_ik(csh#pk0wm$v"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG =True
+DEBUG =False
 
 
-ALLOWED_HOSTS = ["31.220.55.66","www.atozfreshbazaar.in","atozfreshbazaar.in"]
-
+ALLOWED_HOSTS = ["31.220.55.66","www.atozfreshbazaar.in","atozfreshbazaar.in","127.0.0.1","192.168.43.182"]
 
 # Application definition
 

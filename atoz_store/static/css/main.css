@@ -409,13 +409,13 @@ padding-bottom: 5px;
 }
 .footer .footer-content .footer-section{
     flex: 1;
-    padding: 15px;
+    padding: 10px;
 }
 .footer .footer-content h1,.footer .footer-content h2{
     color: white;
 }
 .footer .footer-content .about h1 span{
-    color: #fcd12a;
+    color: #6b8e23;
 }
 .footer .footer-content .about .social a{
     border: 1px solid grey;
@@ -441,6 +441,9 @@ padding-bottom: 5px;
     padding: .9rem 1.4rem;
     border: none;
 }
+.footer-section .Contact-form{
+    padding: right 20px;
+}
 .btn-big{
     padding: .7rem,1.3rem;
     line-height: 1.3rem;
@@ -452,3 +455,27 @@ padding-bottom: 5px;
 .page-wrapper{
     min-height: 100%;
 }
+
+  #loadMore {
+    width: 200px;
+    color: black;
+    display: block;
+    text-align: center;
+    margin: 20px auto;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    background-color: #6b8e23;
+    transition: .3s;
+  }
+  #loadMore:hover {
+    color: white;
+    background-color: #fcd12a;
+    border: 1px solid #6b8e23;
+    text-decoration: none;
+  }
+  .noContent {
+    color: #000 !important;
+    background-color: transparent !important;
+    pointer-events: none;
+  }

@@ -1,6 +1,4 @@
-html,
-body{
-    height: 100%;
+.body{
     background-color:white;
     font-family: 'Ubuntu', sans-serif;
 }
@@ -21,6 +19,8 @@ h1,h2,h3,h4,h5,h6{
     
     background-color: #fff;
 }
+
+
 .delete{
     width: 1cm;
     height: 1cm;
@@ -369,6 +369,7 @@ div.delete{
 	transition:.1s;
 
 }
+
 .up{
     position: relative;
     bottom: 0.4cm;
@@ -385,7 +386,6 @@ padding-top: 3px;
 line-height: 3px;
 padding-bottom: 5px;
 }
-
 .footer{
     background: #303036;
     color: #d3d3d3;
@@ -452,3 +452,4 @@ padding-bottom: 5px;
 .page-wrapper{
     min-height: 100%;
 }
+
