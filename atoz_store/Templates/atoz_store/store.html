@@ -69,12 +69,7 @@
 				<hr>
 
 				<button id="addToCart" data-product="{{product.id}}"  data-flagu="{{product.prodtype}}" data-action="add"  class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
-			  <form class="btn-v" method="POST" action="view">
-				  {% csrf_token %}
-				  <label for="pro"></label>
-				  <input name="pro" type="hidden" class="hidden" value={{product.id}}>
-				  <button id="view"  type="submit" class="btn view btn-outline-success" data-product="{{product.id}}">View</button>
-				</form>	
+			
 				<h4 style="display: inline-block; float: right"><strong>RS.{{ product.price|floatformat:2}}</strong>{{product.type}}</h4>
 
 			</div>
@@ -97,7 +92,7 @@ TF2, 7th Cross Rd, Gangaparameshwari Nagar, Kodichikknahalli, Vijaya Bank Layout
 </div>
 <div class="social">
 <a href=""><i class="fa fa-facebook"></i></a>
-<a href=""><i class="fa fa-instagram"></i></a>
+<a href="https://www.instagram.com/atozfreshbazaar.in/"><i class="fa fa-instagram"></i></a>
 </div>
 		<div class="footer-section Contact-form">
 			<h2>Contact Us</h2>
