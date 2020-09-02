@@ -323,7 +323,7 @@ def search(request):
 
         if srch:
             products = Product.objects.all()
-            match = Product.objects.filter(  Q(catagory__startswith=srch)|Q(name__startswith=srch) )
+            match = Product.objects.filter(  Q(catagory__startswith=srch)|Q(name__startswith=srch) |Q(alias__startswith=srch))
             print(match)
             if match:
                 return render(request,'atoz_store/search.html',{'sr':match,'products':products,'cartItems':cartItems})

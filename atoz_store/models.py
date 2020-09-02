@@ -17,17 +17,18 @@ class Customer(models.Model):
 
 class Product(models.Model):
     catagory_choice = (
-        ("fruit","fruit"),
-        ("dryfruit","dryfruit"),
-        ("vegitable","vegitable"),
+        ("fruits","fruits"),
+        ("dryfruits","dryfruits"),
+        ("vegetable","vegetable"),
         ("other","other"),   
          )
+    
     sell_choice =(
         ("/pcs","/peice"),
         ("/kgs","/kgs")
     )     
     discription = models.CharField(max_length=500,null=True)
-    type =  models.CharField(max_length=30,choices=sell_choice,null=True)
+    alias =  models.CharField(max_length=30,default="",null=True)
     name = models.CharField(max_length=128,null=True,)
     catagory = models.CharField(max_length=30,choices= catagory_choice ,null=True)
     price = models.DecimalField(max_digits=7, decimal_places=2)
