@@ -57,30 +57,34 @@
   </div>
   <br>
   <br>
-
 	<div class="row">
 		{% for product in products %}
 		<div id="eachproduct"   class="col-lg-4 content">
 			
 			<img class="thumbnail" src="{{product.imageURL}}" alt="not found">
 			<div  class="box-element product">
-
+                  
 				<h6><strong>{{product.name}}</strong></h6>
 				<hr>
 
 				<button id="addToCart" data-product="{{product.id}}"  data-flagu="{{product.prodtype}}" data-action="add"  class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
-			  <form class="btn-v" method="POST" action="view">
+			    <div class="forms">
+				<form class="btn-v " method="POST" action="view">
 				  {% csrf_token %}
+				  
 				  <label for="pro"></label>
 				  <input name="pro" type="hidden" class="hidden" value={{product.id}}>
-				  <button id="view"  type="submit" class="btn view btn-outline-success" data-product="{{product.id}}">View</button>
-				</form>	
+				  <button id="view"  type="submit" class=" view " data-product="{{product.id}}">View</button>
+				</form>
+			</div>
+			</div>	
 				<h4 style="display: inline-block; float: right"><strong>RS.{{ product.price|floatformat:2}}</strong>{{product.type}}</h4>
-
+                     
 			</div>
 		</div>
 		 {% endfor %}
 	</div>
+	
 </div>
 </div>
 <div class="footer">
