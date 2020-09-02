@@ -24,6 +24,7 @@ class Product(models.Model):
          )
     discription = models.CharField(max_length=500,null=True)
     mini_desc = models.CharField(max_length=40,null=True,)
+    
     alias =  models.CharField(max_length=30,default="",null=True)
     name = models.CharField(max_length=128,null=True,)
     catagory = models.CharField(max_length=30,choices= catagory_choice ,null=True)
