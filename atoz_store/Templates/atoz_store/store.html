@@ -2,17 +2,34 @@
 {% load static %}
 {% block content %}
 <br>
-<br>
-<br>
+
+
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <div class="page-wrapper">
-<div>
+<div class="catagories">
+	<form method="POST" action="search">
+		{% csrf_token %}
+		<input type="hidden" name="search" value="fruit" />
+		<button class="butt">fruits</button>
+	</form>
+	<form id="anass" method="POST" action="search">
+		{% csrf_token %}
+		<input type="hidden" name="search" value="veg" />
+		<button class="butt">vegitables</button>
+	</form>
+	<form id="dryfruits" method="POST" action="search">
+		{% csrf_token %}
+		<input type="hidden" name="search" value="dry" />
+		<button class="butt">Dry-fruits</button>
+	</form>
+</div>
+<div class="sli">
 	<form class="form-inline my-2 my-lg-0" method="post" action="search">
 		 {% csrf_token %}
-		<input class="form-control mr-sm-2" name="search" type="search" placeholder="Fruits,Dry-fruit,vegies..." aria-label="Search">
+		<input class="form-control mr-sm-2" name="search" type="search" id="wid" placeholder="Fruits,Dry-fruit,vegies..." aria-label="Search">
 		<button class="srcbtn btn btn-outline-success my-2 my-sm-0 fa fa-search" type="submit"></button>
 	  </form>
   <br>
@@ -60,7 +77,8 @@
 
 	<div class="row">
 		{% for product in products %}
-		<div id="eachproduct"   class="col-lg-4 content">
+		
+		<div id="eachproduct"   class=" col-lg-4">
 			
 			<img class="thumbnail" src="{{product.imageURL}}" alt="not found">
 			<div  class="box-element product">
@@ -76,6 +94,7 @@
 		</div>
 		 {% endfor %}
 	</div>
+	 <a href="#" id="loadMore">Load More</a>
 </div>
 </div>
 <div class="footer">
@@ -115,19 +134,7 @@ TF2, 7th Cross Rd, Gangaparameshwari Nagar, Kodichikknahalli, Vijaya Bank Layout
 	<div class="footer-bottom">
 	@copy:Project developed and managed by ZSQUARE 
 	</div>
-<script>
-	$(document).ready(function(){
-		$(".content").slice(0, 4).show();
-		$("#loadMore").on("click", function(e){
-		  e.preventDefault();
-		  $(".content:hidden").slice(0, 4).slideDown();
-		  if($(".content:hidden").length == 0) {
-			$("#loadMore").text("No Content").addClass("noContent");
-		  }
-		});
-		
-	  })
-</script>
+
 {% endblock content %}
 
 
