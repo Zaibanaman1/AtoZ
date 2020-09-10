@@ -520,6 +520,7 @@ padding-bottom: 5px;
 .catagories{
     position: relative;
     top: 1ch;
+    padding-bottom: 0.5cm;
 }
 
 .form-inline {
@@ -529,5 +530,9 @@ padding-bottom: 5px;
 }
 
 .slide{
-    margin-top: -0.8in;
+    margin-top: -0.5in;
+}
+
+.container{
+    margin-left: 1in;
 }
