@@ -1,4 +1,8 @@
-.body{
+html,
+body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
     background-color:white;
     font-family: 'Ubuntu', sans-serif;
 }
@@ -19,8 +23,6 @@ h1,h2,h3,h4,h5,h6{
     
     background-color: #fff;
 }
-
-
 .delete{
     width: 1cm;
     height: 1cm;
@@ -109,10 +111,20 @@ h1,h2,h3,h4,h5,h6{
     100% { transform: rotate(360deg); }
   }
 
+  .flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
 .form-field{
 	width:250px;
 	display: inline-block;
 	padding: 5px;
+}
+#wid{
+    width: 249px;
 }
 
 .cart-column{
@@ -149,10 +161,6 @@ h1,h2,h3,h4,h5,h6{
 	opacity: .6;
 }
 
-
-.hidden{
-	display: none!important;
-}
 
 .btn:hover{
 	background-color: #fcd12a;
@@ -369,7 +377,6 @@ div.delete{
 	transition:.1s;
 
 }
-
 .up{
     position: relative;
     bottom: 0.4cm;
@@ -386,6 +393,7 @@ padding-top: 3px;
 line-height: 3px;
 padding-bottom: 5px;
 }
+
 .footer{
     background: #303036;
     color: #d3d3d3;
@@ -409,13 +417,13 @@ padding-bottom: 5px;
 }
 .footer .footer-content .footer-section{
     flex: 1;
-    padding: 15px;
+    padding: 10px;
 }
 .footer .footer-content h1,.footer .footer-content h2{
     color: white;
 }
 .footer .footer-content .about h1 span{
-    color: #fcd12a;
+    color: #6b8e23;
 }
 .footer .footer-content .about .social a{
     border: 1px solid grey;
@@ -441,6 +449,9 @@ padding-bottom: 5px;
     padding: .9rem 1.4rem;
     border: none;
 }
+.footer-section .Contact-form{
+    padding: right 20px;
+}
 .btn-big{
     padding: .7rem,1.3rem;
     line-height: 1.3rem;
@@ -453,3 +464,70 @@ padding-bottom: 5px;
     min-height: 100%;
 }
 
+  #loadMore {
+    width: 200px;
+    color: black;
+    display: block;
+    text-align: center;
+    margin: 20px auto;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    background-color: #6b8e23;
+    transition: .3s;
+  }
+  #loadMore:hover {
+    color: white;
+    background-color: #fcd12a;
+    border: 1px solid #6b8e23;
+    text-decoration: none;
+  }
+  .noContent {
+    color: #000 !important;
+    background-color: transparent !important;
+    pointer-events: none;
+  }
+
+  .content {
+   
+    display: none;
+  }
+  .butt{
+      margin-top: -6ch;
+    border: 0;
+    padding: 0;
+    display: inline;
+    background: none;
+    text-decoration: underline;
+    color:olive;
+}
+.butt:hover {
+    cursor: pointer;
+}
+
+#anass{
+  position: relative;
+  left: 5ch;
+  top: -2.7ch;
+}
+
+#dryfruits{
+    position: relative;
+    left: 14ch;
+    top: -5.4ch;
+}
+
+.catagories{
+    position: relative;
+    top: 1ch;
+}
+
+.form-inline {
+    position: relative;
+    top: -5ch;
+ 
+}
+
+.slide{
+    margin-top: -0.8in;
+}
