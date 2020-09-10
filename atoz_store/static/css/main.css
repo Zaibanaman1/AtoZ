@@ -513,14 +513,16 @@ padding-bottom: 5px;
 
 #dryfruits{
     position: relative;
-    left: 14ch;
+    left: 15ch;
     top: -5.4ch;
 }
+
 
 .catagories{
     position: relative;
     top: 1ch;
     padding-bottom: 0.5cm;
+    width: 20ch;
 }
 
 .form-inline {
@@ -533,6 +535,4 @@ padding-bottom: 5px;
     margin-top: -0.5in;
 }
 
-.container{
-    margin-left: 1in;
-}
+
