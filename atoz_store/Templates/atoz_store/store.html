@@ -1,4 +1,4 @@
-ds 'atoz_store/main.html' %}
+{% extends 'atoz_store/main.html' %}
 {% load static %}
 {% block content %}
 <br>
@@ -13,12 +13,12 @@ ds 'atoz_store/main.html' %}
 	<form method="POST" action="search">
 		{% csrf_token %}
 		<input type="hidden" name="search" value="fruit" />
-		<button class="butt">Fruits</button>
+		<button class="butt">fruits</button>
 	</form>
 	<form id="anass" method="POST" action="search">
 		{% csrf_token %}
 		<input type="hidden" name="search" value="veg" />
-		<button class="butt">Vegetables</button>
+		<button class="butt">vegitables</button>
 	</form>
 	<form id="dryfruits" method="POST" action="search">
 		{% csrf_token %}
@@ -52,7 +52,9 @@ ds 'atoz_store/main.html' %}
 	  <div class="carousel-item">
 		<img src="{% static  'images/capture5.png' %}" class="d-block w-100" alt="...">
 	  </div>
-	  
+	  <div class="carousel-item">
+		<img src="{% static  'images/capture6.png' %}" class="d-block w-100" alt="...">
+	  </div>
 	  <div class="carousel-item">
 		<img src="{% static  'images/capture7.png' %}" class="d-block w-100" alt="...">
 	  </div>
@@ -92,7 +94,7 @@ ds 'atoz_store/main.html' %}
 		</div>
 		 {% endfor %}
 	</div>
-	 <a href="#" id="loadMore">Back To Top</a>
+	 <a href="#" id="loadMore">Load More</a>
 </div>
 </div>
 <div class="footer">
