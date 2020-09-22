@@ -520,6 +520,7 @@ padding-bottom: 5px;
 .catagories{
     position: relative;
     top: 1ch;
+    width: 2cm;
     padding-bottom: 0.5cm;
 }
 
@@ -533,9 +534,6 @@ padding-bottom: 5px;
     margin-top: -0.5in;
 }
 
-.container{
-    margin-left: 1in;
-}
 
 .hidden{
     display: none;
