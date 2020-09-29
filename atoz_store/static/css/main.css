@@ -493,8 +493,8 @@ padding-bottom: 5px;
     display: none;
   }
   .butt{
-      margin-top: -6ch;
-    border: 0;
+    margin-top: -6ch;
+    border: none;
     padding: 0;
     display: inline;
     background: none;
@@ -504,6 +504,7 @@ padding-bottom: 5px;
 .butt:hover {
     cursor: pointer;
 }
+
 
 #anass{
   position: relative;
@@ -517,6 +518,17 @@ padding-bottom: 5px;
     top: -5.4ch;
 }
 
+#chick{
+    position: relative;
+    left: 22ch;
+    top: -8.1ch;
+}
+
+#sea{
+    position: relative;
+    left: 29ch;
+    top: -10.8ch;
+}
 .catagories{
     position: relative;
     top: 1ch;
@@ -526,7 +538,7 @@ padding-bottom: 5px;
 
 .form-inline {
     position: relative;
-    top: -5ch;
+    top: -10ch;
  
 }
 
