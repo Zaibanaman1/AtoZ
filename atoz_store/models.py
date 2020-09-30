@@ -20,6 +20,8 @@ class Product(models.Model):
         ("fruit","fruit"),
         ("dryfruit","dryfruit"),
         ("vegitable","vegitable"),
+         ("chicken","chicken"),
+          ("seafood","seafood"),
         ("other","other"),   
          )
     discription = models.CharField(max_length=500,null=True)

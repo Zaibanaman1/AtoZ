@@ -7,6 +7,7 @@
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 </head>
 <div class="page-wrapper">
 <div class="catagories">
@@ -25,12 +26,22 @@
 		<input type="hidden" name="search" value="dry" />
 		<button class="butt">Dry-fruits</button>
 	</form>
+	<form id="chick"  method="POST" action="search">
+		{% csrf_token %}
+		<input type="hidden" name="search" value="chicken" />
+		<button class="butt">chicken</button>
+	</form>
+	<form id="sea"  method="POST" action="search">
+		{% csrf_token %}
+		<input type="hidden" name="search" value="seafood" />
+		<button class="butt">seafood</button>
+	</form>
 </div>
 <div class="sli">
 	<form class="form-inline my-2 my-lg-0" method="post" action="search">
 		 {% csrf_token %}
 		<input class="form-control mr-sm-2" name="search" type="search" id="wid" placeholder="Fruits,Dry-fruit,vegies..." aria-label="Search">
-		<button class="srcbtn btn btn-outline-success my-2 my-sm-0 fa fa-search" type="submit"></button>
+		<button class="srcbtn btn btn-outline-success my-2 my-sm-0 fa fa-search" type="submit" ></button>
 	  </form>
   <br>
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -53,6 +64,9 @@
 		<img src="{% static  'images/capture5.png' %}" class="d-block w-100" alt="...">
 	  </div>
 	  <div class="carousel-item">
+		<img src="{% static  'images/capture6.png' %}" class="d-block w-100" alt="...">
+	  </div>
+	  <div class="carousel-item">
 		<img src="{% static  'images/capture7.png' %}" class="d-block w-100" alt="...">
 	  </div>
 	  <div class="carousel-item">
@@ -71,11 +85,11 @@
   </div>
   <br>
   <br>
-
+	 
 	<div class="row">
 		{% for product in products %}
 		
-		<div id="eachproduct"   class=" col-lg-4">
+		<div id="eachproduct"   class="col-lg-4">
 			
 			<img class="thumbnail" src="{{product.imageURL}}" alt="not found">
 			<div  class="box-element product">
@@ -85,13 +99,30 @@
 
 				<button id="addToCart" data-product="{{product.id}}"  data-flagu="{{product.prodtype}}" data-action="add"  class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
 			
-				<h4 style="display: inline-block; float: right"><strong>RS.{{ product.price|floatformat:2}}</strong>  {% if product.prodtype %} /kg {% else %} /peice {% endif %}</h4>
+				<h4 style="display: inline-block; "><strong>RS.{{ product.price|floatformat:2}}</strong>  {% if product.prodtype %} /kg {% else %} /peice {% endif %}</h4>
 
 			</div>
 		</div>
 		 {% endfor %}
 	</div>
-	 <a href="#" id="loadMore">back to top</a>
+	<div id=load>
+		<button onclick="loadmore()" class="btn center-block loadMore">LoadMore</button>
+	</div>
+	
+
+	<script>
+		$(".col-lg-4").slice(0,6).show();
+
+		$(".loadMore").onclick(function(loadmore){
+
+			$(".col-lg-4:hidden").slice(0,6).show();
+
+			if$((".col-lg-4:hidden").length ==0)
+			{
+				$(".loadMore").fadeOut();
+			}
+		});
+	</script>
 </div>
 </div>
 <div class="footer">
@@ -133,5 +164,7 @@ TF2, 7th Cross Rd, Gangaparameshwari Nagar, Kodichikknahalli, Vijaya Bank Layout
 	</div>
 
 {% endblock content %}
+
+
 
 
