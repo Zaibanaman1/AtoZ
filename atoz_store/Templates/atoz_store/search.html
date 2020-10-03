@@ -8,6 +8,33 @@
 </head>
 <br>
 <br>
+<div class="catagories">
+	<form method="POST" action="search">
+		{% csrf_token %}
+		<input type="hidden" name="search" value="fruit" />
+		<button class="butt">fruits</button>
+	</form>
+	<form id="anass" method="POST" action="search">
+		{% csrf_token %}
+		<input type="hidden" name="search" value="veg" />
+		<button class="butt">vegitables</button>
+	</form>
+	<form id="dryfruits" method="POST" action="search">
+		{% csrf_token %}
+		<input type="hidden" name="search" value="dry" />
+		<button class="butt">Dry-fruits</button>
+	</form>
+	<form id="chick"  method="POST" action="search">
+		{% csrf_token %}
+		<input type="hidden" name="search" value="chicken" />
+		<button class="butt">chicken</button>
+	</form>
+	<form id="sea"  method="POST" action="search">
+		{% csrf_token %}
+		<input type="hidden" name="search" value="seafood" />
+		<button class="butt">seafood</button>
+	</form>
+</div>
 <div>
 	<form class="form-inline my-2 my-lg-0" method="post" action="search" style="padding: 105px; margin-left: -105px;">
 		{% csrf_token %}
