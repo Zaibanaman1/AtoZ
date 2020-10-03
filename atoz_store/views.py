@@ -39,7 +39,7 @@ def store(request):
             try:
                 cartItems += 1
             except:pass    
-
+    
     products = Product.objects.all()
     context = {'products':products,'cartItems':cartItems}
     return render(request ,'atoz_store/store.html',context)
