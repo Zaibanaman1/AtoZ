@@ -56,9 +56,9 @@
 				<hr>
 
 				<button id="addToCart" data-product="{{k.id}}" data-action="add"  class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
-				<a class="btn btn-outline-success" href="#">View</a>
+				
 				{% if k.offprice > 0 %}
-				<h4 class="pricetag" style="display: inline-block; "> <s> RS.{{ k.price|floatformat:2}} </s> </h4>
+				<h4 class="pricetag" style="display: inline-block; "> <s> RS.{{ k.price|floatformat:2}}  </s> </h4>
 				<h4 class="offprice" style="display: inline-block; "><strong>RS.{{ k.offprice|floatformat:2}}</strong>  {% if k.prodtype %} /kg {% else %} /peice {% endif %}</h4>
 				{% else %}
 				<h4 class="offprice" style="display: inline-block; ">  <strong>RS.{{ k.price|floatformat:2}} </strong>  {% if k.prodtype %} /kg {% else %} /peice {% endif %} </h4>
