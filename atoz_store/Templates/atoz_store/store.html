@@ -95,37 +95,22 @@
 			<div  class="box-element product">
 
 				<h6><strong>{{product.name}}</strong></h6>
-				<hr>
-
+				<hr class="hrr" >
 				<button id="addToCart" data-product="{{product.id}}"  data-flagu="{{product.prodtype}}" data-action="add"  class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
 			    {% if product.offprice > 0 %}
-				<h4 class="pricetag" style="display: inline-block; "> <s> RS.{{ product.price|floatformat:2}} </s> </h4>
-				<h4 class="offprice" style="display: inline-block; "><strong>RS.{{ product.offprice|floatformat:2}}</strong>  {% if product.prodtype %} /kg {% else %} /peice {% endif %}</h4>
+				<h4 class="pricetag" style="display: inline-block; "> <s> RS.{{ product.price|floatformat:0}} </s> </h4>
+				<h4 class="offprice" style="display: inline-block; "><strong>RS.{{ product.offprice|floatformat:0}}</strong>  {% if product.prodtype %} /kg {% else %} /peice {% endif %}</h4>
 				{% else %}
-				<h4 class="offprice" style="display: inline-block; ">  <strong>RS.{{ product.price|floatformat:2}} </strong>  {% if product.prodtype %} /kg {% else %} /peice {% endif %} </h4>
+				<h4 class="normprice" style="display: inline-block; ">  <strong>RS.{{ product.price|floatformat:0}} </strong>  {% if product.prodtype %} /kg {% else %} /peice {% endif %} </h4>
 			    {% endif %}
 			</div>
 		</div>
 		 {% endfor %}
 	</div>
-	<div id=load>
-		<button onclick="loadmore()" class="btn center-block loadMore">LoadMore</button>
-	</div>
+	
 	
 
-	<script>
-		$(".col-lg-4").slice(0,6).show();
 
-		$(".loadMore").onclick(function(loadmore){
-
-			$(".col-lg-4:hidden").slice(0,6).show();
-
-			if$((".col-lg-4:hidden").length ==0)
-			{
-				$(".loadMore").fadeOut();
-			}
-		});
-	</script>
 </div>
 </div>
 <div class="footer">
