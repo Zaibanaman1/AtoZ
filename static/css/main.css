@@ -549,3 +549,29 @@ padding-bottom: 5px;
 .hidden{
     display: none;
 }
+
+.pricetag{
+    position: relative;
+    bottom: 1.55cm;
+    left: 3cm;
+    font-size: 15px;
+}
+
+.offprice{
+    position: relative;
+    bottom: 1cm;
+    font-size: 20px;
+    padding-left: 2in;
+}
+
+.rectangle{
+    text-align: center;
+    font-size: 12px;
+    position: relative;
+    left: 7.77cm;
+    top: 0.56cm;
+    height: 0.7cm;
+    width: 1.5cm;
+    color: black;
+    background-color:#fcd12a;
+}
