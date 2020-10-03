@@ -562,7 +562,7 @@ padding-bottom: 5px;
 .normprice{
     width: 5cm;
     position: relative;
-    left: 1cm;
+    left: 0.8cm;
     bottom: 0cm;
     font-size: 18px;
     padding-left: 1in;
@@ -570,7 +570,7 @@ padding-bottom: 5px;
 
 .offprice{
     position: relative;
-    left: 3.6cm;
+    left: 3.5cm;
     width: 5cm;
     position: relative;
     bottom: 0.8cm;
