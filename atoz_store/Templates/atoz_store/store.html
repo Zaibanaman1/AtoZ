@@ -108,21 +108,23 @@
 	<div id=load>
 		<button onclick="loadmore()" class="btn center-block loadMore">LoadMore</button>
 	</div>
+	 <script>
+		 $(".col-lg-4").slice(0,2).show();
+
+$(".loadMore").onclick(function(loadmore){
+
+	$(".col-lg-4:hidden").slice(0,4).show();
+
+	if$((".col-lg-4:hidden").length ==0)
+	{
+		$(".loadMore").fadeOut();
+	}
+	alert (hii)
+});
+
+	 </script>
+
 	
-
-	<script>
-		$(".col-lg-4").slice(0,6).show();
-
-		$(".loadMore").onclick(function(loadmore){
-
-			$(".col-lg-4:hidden").slice(0,6).show();
-
-			if$((".col-lg-4:hidden").length ==0)
-			{
-				$(".loadMore").fadeOut();
-			}
-		});
-	</script>
 </div>
 </div>
 <div class="footer">
