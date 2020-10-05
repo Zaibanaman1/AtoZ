@@ -58,19 +58,16 @@
 		<img src="{% static  'images/capture3.png' %}" class="d-block w-100" alt="...">
 	  </div>
 	  <div class="carousel-item">
-		<img src="{% static  'images/capture2.png' %}" class="d-block w-100" alt="...">
+		<img src="{% static  'images/banner3.jpg' %}" class="d-block w-100" alt="...">
 	  </div>
 	  <div class="carousel-item">
 		<img src="{% static  'images/capture5.png' %}" class="d-block w-100" alt="...">
 	  </div>
 	  <div class="carousel-item">
-		<img src="{% static  'images/capture6.png' %}" class="d-block w-100" alt="...">
-	  </div>
-	  <div class="carousel-item">
 		<img src="{% static  'images/capture7.png' %}" class="d-block w-100" alt="...">
 	  </div>
 	  <div class="carousel-item">
-		<img src="{% static  'images/capture.png' %}" class="d-block w-100" alt="...">
+		<img src="{% static  'images/banner2.jpg' %}" class="d-block w-100" alt="...">
 	  </div>
 	</div>
 	<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -90,41 +87,30 @@
 		{% for product in products %}
 		
 		<div id="eachproduct"   class="col-lg-4">
-			
+			{% if product.percent < 100 %}
+
+			<div class="rectangle">   {{product.percent|floatformat:0}}%off</div>
+			{% endif %}
 			<img class="thumbnail" src="{{product.imageURL}}" alt="not found">
 			<div  class="box-element product">
 
 				<h6><strong>{{product.name}}</strong></h6>
-				<hr>
-
+				<hr class="hrr" >
 				<button id="addToCart" data-product="{{product.id}}"  data-flagu="{{product.prodtype}}" data-action="add"  class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
-			
-				<h4 style="display: inline-block; "><strong>RS.{{ product.price|floatformat:2}}</strong>  {% if product.prodtype %} /kg {% else %} /peice {% endif %}</h4>
-
+			    {% if product.offprice > 0 %}
+				<h4 class="pricetag" style="display: inline-block; "> <s> RS.{{ product.price|floatformat:0}} </s> </h4>
+				<h4 class="offprice" style="display: inline-block; "><strong>RS.{{ product.offprice|floatformat:0}}</strong>  {% if product.prodtype %} /kg {% else %} /peice {% endif %}</h4>
+				{% else %}
+				<h4 class="normprice" style="display: inline-block; ">  <strong>RS.{{ product.price|floatformat:0}} </strong>  {% if product.prodtype %} /kg {% else %} /peice {% endif %} </h4>
+			    {% endif %}
 			</div>
 		</div>
 		 {% endfor %}
 	</div>
-	<div id=load>
-		<button onclick="loadmore()" class="btn center-block loadMore">LoadMore</button>
-	</div>
-	 <script>
-		 $(".col-lg-4").slice(0,2).show();
-
-$(".loadMore").onclick(function(loadmore){
-
-	$(".col-lg-4:hidden").slice(0,4).show();
-
-	if$((".col-lg-4:hidden").length ==0)
-	{
-		$(".loadMore").fadeOut();
-	}
-	alert (hii)
-});
-
-	 </script>
-
 	
+	
+
+
 </div>
 </div>
 <div class="footer">

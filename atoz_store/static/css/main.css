@@ -13,6 +13,7 @@ h1,h2,h3,h4,h5,h6{
 }
 
 .box-element{
+    height: 10%;
     padding-left: 20px;
 	background-color: #fff;
 	border-radius: 4px;
@@ -549,3 +550,43 @@ padding-bottom: 5px;
 .hidden{
     display: none;
 }
+
+.pricetag{
+    width: 3cm;
+    position: relative;
+    bottom: 1.55cm;
+    left: 3.7cm;
+    font-size: 18px;
+}
+
+.normprice{
+    width: 5cm;
+    position: relative;
+    left: 0.8cm;
+    bottom: 0cm;
+    font-size: 18px;
+    padding-left: 1in;
+}
+
+.offprice{
+    position: relative;
+    left: 3.5cm;
+    width: 5cm;
+    position: relative;
+    bottom: 0.8cm;
+    font-size: 18px;
+    padding-left: 1in;
+}
+
+.rectangle{
+    text-align: center;
+    font-size: 12px;
+    position: relative;
+    left: 7.77cm;
+    top: 0.56cm;
+    height: 0.7cm;
+    width: 1.5cm;
+    color: black;
+    background-color:#fcd12a;
+}
+
