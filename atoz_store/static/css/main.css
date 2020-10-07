@@ -462,6 +462,8 @@ padding-bottom: 5px;
 
 }
 .page-wrapper{
+
+    align-content: center;
     min-height: 100%;
 }
 
@@ -552,19 +554,20 @@ padding-bottom: 5px;
 }
 
 .pricetag{
-    width: 3cm;
+    width: 1cm;
     position: relative;
     bottom: 1.55cm;
-    left: 3.7cm;
-    font-size: 18px;
+    left: 2.8cm;
+    font-size: 15px;
 }
 
 .normprice{
-    width: 5cm;
+    
     position: relative;
-    left: 0.8cm;
     bottom: 0cm;
-    font-size: 18px;
+    left: -0.7cm;
+    width: 2cm;
+    font-size: 15px;
     padding-left: 1in;
 }
 
@@ -582,11 +585,139 @@ padding-bottom: 5px;
     text-align: center;
     font-size: 12px;
     position: relative;
-    left: 7.77cm;
+    left: 7cm;
+    margin-left:0;
     top: 0.56cm;
     height: 0.7cm;
-    width: 1.5cm;
+    width: 1.2cm;
     color: black;
     background-color:#fcd12a;
 }
 
+/* ADD TO CART */
+
+
+
+.cart-button {
+    position: relative;
+    border-radius: 5em;
+	background-color: #6b8e23;
+	color: black;
+	padding: 10px;
+	width: 115px;
+	height: 40px;
+    border: 0;
+    font-size: 10px;
+	outline: none;
+	cursor: pointer;
+	
+	transition: .3s ease-in-out;
+	overflow: hidden;
+}
+.cart-button:hover {
+    background-color: #fcd12a;
+	box-shadow: 0 5px 15px rgba(32, 202, 108, 0.4);
+	
+}
+.cart-button:active {
+	transform: scale(.9);
+}
+
+.cart-button .fa-shopping-cart {
+	position: absolute;
+	z-index: 2;
+	top: 50%;
+	left: -10%;
+	font-size: 2em;
+	transform: translate(-50%,-50%);
+}
+.cart-button .fa-box {
+	position: absolute;
+	z-index: 3;
+	top: -20%;
+	left: 52%;
+	font-size: 1.2em;
+	transform: translate(-50%,-50%);
+}
+.cart-button span {
+	position: absolute;
+	z-index: 3;
+	left: 40%;
+    top: 50%;
+    font-size: 13px;
+	color: black;
+	transform: translate(-50%,-50%);
+}
+.cart-icon1{
+    position: relative;
+    right: 1.6cm;
+    
+}
+
+
+.cart-button span.add-to-cart {
+	opacity: 1;
+}
+.cart-button span.added {
+	opacity: 0;
+}
+
+.cart-button.clicked .fa-shopping-cart {
+	animation: cart 1.5s ease-in-out forwards;
+}
+.cart-button.clicked .fa-box {
+	animation: box 1.5s ease-in-out forwards;
+}
+.cart-button.clicked span.add-to-cart {
+	animation: txt1 1.5s ease-in-out forwards;
+}
+.cart-button.clicked span.added {
+	animation: txt2 1.5s ease-in-out forwards;
+}
+@keyframes cart {
+	0% {
+		left: -10%;
+	}
+	40%, 60% {
+		left: 50%;
+	}
+	100% {
+		left: 110%;
+	}
+}
+@keyframes box {
+	0%, 40% {
+		top: -20%;
+	}
+	60% {
+		top: 40%;
+		left: 52%;
+	}
+	100% {
+		top: 40%;
+		left: 112%;
+	}
+}
+@keyframes txt1 {
+	0% {
+		opacity: 1;
+	}
+	20%, 100% {
+		opacity: 0;
+	}
+}
+@keyframes txt2 {
+	0%, 80% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+#cartbut{
+    position: relative;
+    right:1cm;
+}
+
+/* ADD TO CART END */

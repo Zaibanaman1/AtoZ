@@ -349,9 +349,12 @@ def profile(request):
         
             ord = order.latest('date_ordered')
             ordid= int(ord.id) 
-        
-            status = ord.status
-            print(status)
+            mnager=manager.objects.get(Orderm=ordid)
+            pro = mnager.productm
+            total = mnager.totalm
+            arr = (pro.split(','))
+            for a in arr:
+                print(a)        
             print(ord)
             print(ordid )
         except:
@@ -365,11 +368,9 @@ def profile(request):
     
    
    
-    try:
-        context ={'ordid':ordid,'order':order,'status':status}
-        return render(request,'atoz_store/profile.html',context)    
-    except:
-        return render(request,'atoz_store/profileexcept.html')
+    context ={'ordid':ordid,'order':order,'customer':customer,'arr':arr,'total':total}
+    return render(request,'atoz_store/profile.html',context)    
+ 
 
 def orderhistory(request):
     if request.user.is_authenticated:
