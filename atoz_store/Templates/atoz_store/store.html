@@ -98,16 +98,18 @@
 				<h6><strong>{{product.name}}</strong></h6>
 				<hr class="hrr" >
 				<button id="addToCart" data-product="{{product.id}}"  data-flagu="{{product.prodtype}}" data-action="add"  class="btn btn-outline-secondary add-btn  cart-button">
-					<span class="add-to-cart"> <strong>Add to cart</strong> </span>
-					<span class="added">Added </span>
+					<span class="add-to-cart"> <strong>Add to cart</strong></span>
+					<span class="added"><strong>added</strong>  </span>
+					
 					<i class="fas fa-shopping-cart"></i>
 					<i class="fas fa-box"></i>
 				</button>
+			 
 			    {% if product.offprice > 0 %}
 				<h4 class="pricetag" style="display: inline-block; "> <s> RS.{{ product.price|floatformat:0}} </s> </h4>
 				<h4 class="offprice" style="display: inline-block; "><strong>RS.{{ product.offprice|floatformat:0}}</strong>  {% if product.prodtype %} /kg {% else %} /peice {% endif %}</h4>
 				{% else %}
-				<h4 class="normprice" style="display: inline-block; ">  <strong>RS.{{ product.price|floatformat:0}} </strong>  {% if product.prodtype %} /kg {% else %} /peice {% endif %} </h4>
+				<h3 class="normprice" style="display: inline-block; ">  <strong>RS.{{ product.price|floatformat:0}}{% if product.prodtype %}/kg{% else %}/peice{% endif %} </strong>  </h3>
 			    {% endif %}
 			</div>
 		</div>
@@ -158,7 +160,6 @@ TF2, 7th Cross Rd, Gangaparameshwari Nagar, Kodichikknahalli, Vijaya Bank Layout
 	</div>
 	<script>
 		const cartButtons = document.querySelectorAll('.cart-button');
-
 cartButtons.forEach(button => {
 	button.addEventListener('click', cartClick);
 });
@@ -166,6 +167,7 @@ cartButtons.forEach(button => {
 function cartClick() {
 	let button = this;
 	button.classList.add('clicked');
+
 }
 	</script>
 {% endblock content %}

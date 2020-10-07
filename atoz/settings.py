@@ -28,7 +28,7 @@ DEBUG =True
 
 
 
-ALLOWED_HOSTS = ["31.220.55.66","www.atozfreshbazaar.in","atozfreshbazaar.in","127.0.0.1","192.168.43.182"]
+ALLOWED_HOSTS = ["31.220.55.66","www.atozfreshbazaar.in","atozfreshbazaar.in","127.0.0.1","192.168.0.177"]
 
 # Application definition
 

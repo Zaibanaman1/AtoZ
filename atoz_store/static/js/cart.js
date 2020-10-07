@@ -177,6 +177,8 @@ function updateUserOrder(productId,action){
     
         console.log('cart:',cart)
         document.cookie = 'cart=' + JSON.stringify(cart) + ';domain=;PATH=/'
+        $( "#number" ).load(window.location.href + " #number" );
+        $( "#cart-total1" ).load(window.location.href + " #cart-total1" );
         
     }
 
@@ -198,7 +200,8 @@ function updateUserOrder(productId,action){
             console.log('data:', data)
         
         })
-        
+        $( "#number" ).load(window.location.href + " #number" );
+       
         
         
     
