@@ -462,6 +462,9 @@ padding-bottom: 5px;
 
 }
 .page-wrapper{
+    padding-top: 1cm;
+
+    align-content: center;
     min-height: 100%;
 }
 
@@ -552,19 +555,20 @@ padding-bottom: 5px;
 }
 
 .pricetag{
-    width: 3cm;
+    width: 1cm;
     position: relative;
     bottom: 1.55cm;
-    left: 3.7cm;
-    font-size: 18px;
+    left: 2.8cm;
+    font-size: 15px;
 }
 
 .normprice{
-    width: 5cm;
+    
     position: relative;
-    left: 0.8cm;
     bottom: 0cm;
-    font-size: 18px;
+    left: -0.7cm;
+    width: 2cm;
+    font-size: 15px;
     padding-left: 1in;
 }
 
@@ -582,10 +586,11 @@ padding-bottom: 5px;
     text-align: center;
     font-size: 12px;
     position: relative;
-    left: 7.77cm;
+    left: 7cm;
+    margin-left:0;
     top: 0.56cm;
     height: 0.7cm;
-    width: 1.5cm;
+    width: 1.2cm;
     color: black;
     background-color:#fcd12a;
 }
@@ -600,10 +605,10 @@ padding-bottom: 5px;
 	background-color: #6b8e23;
 	color: black;
 	padding: 10px;
-	width: 150px;
+	width: 116px;
 	height: 40px;
     border: 0;
-    font-size: 12px;
+    font-size: 10px;
 	outline: none;
 	cursor: pointer;
 	
@@ -638,12 +643,19 @@ padding-bottom: 5px;
 .cart-button span {
 	position: absolute;
 	z-index: 3;
-	left: 50%;
-	top: 50%;
-	font-size: 1.2em;
+	left: 40%;
+    top: 50%;
+    font-size: 13px;
 	color: black;
 	transform: translate(-50%,-50%);
 }
+.cart-icon1{
+    position: relative;
+    right: 1.6cm;
+    
+}
+
+
 .cart-button span.add-to-cart {
 	opacity: 1;
 }
@@ -704,5 +716,9 @@ padding-bottom: 5px;
 	}
 }
 
+#cartbut{
+    position: relative;
+    right:1cm;
+}
 
 /* ADD TO CART END */
