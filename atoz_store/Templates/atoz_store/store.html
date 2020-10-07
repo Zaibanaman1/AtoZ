@@ -6,7 +6,8 @@
 
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 </head>
 <div class="page-wrapper">
@@ -41,7 +42,7 @@
 	<form class="form-inline my-2 my-lg-0" method="post" action="search">
 		 {% csrf_token %}
 		<input class="form-control mr-sm-2" name="search" type="search" id="wid" placeholder="Fruits,Dry-fruit,vegies..." aria-label="Search">
-		<button class="srcbtn btn btn-outline-success my-2 my-sm-0 fa fa-search" type="submit" ></button>
+		<button  class="srcbtn btn btn-outline-success my-2 my-sm-0 " type="submit" ><strong>search</strong></button>
 	  </form>
   <br>
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -96,7 +97,12 @@
 
 				<h6><strong>{{product.name}}</strong></h6>
 				<hr class="hrr" >
-				<button id="addToCart" data-product="{{product.id}}"  data-flagu="{{product.prodtype}}" data-action="add"  class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
+				<button id="addToCart" data-product="{{product.id}}"  data-flagu="{{product.prodtype}}" data-action="add"  class="btn btn-outline-secondary add-btn  cart-button">
+					<span class="add-to-cart"> <strong>Add to cart</strong> </span>
+					<span class="added">Added </span>
+					<i class="fas fa-shopping-cart"></i>
+					<i class="fas fa-box"></i>
+				</button>
 			    {% if product.offprice > 0 %}
 				<h4 class="pricetag" style="display: inline-block; "> <s> RS.{{ product.price|floatformat:0}} </s> </h4>
 				<h4 class="offprice" style="display: inline-block; "><strong>RS.{{ product.offprice|floatformat:0}}</strong>  {% if product.prodtype %} /kg {% else %} /peice {% endif %}</h4>
@@ -150,7 +156,18 @@ TF2, 7th Cross Rd, Gangaparameshwari Nagar, Kodichikknahalli, Vijaya Bank Layout
 	<div class="footer-bottom">
 	@copy:Project developed and managed by ZSQUARE 
 	</div>
+	<script>
+		const cartButtons = document.querySelectorAll('.cart-button');
 
+cartButtons.forEach(button => {
+	button.addEventListener('click', cartClick);
+});
+
+function cartClick() {
+	let button = this;
+	button.classList.add('clicked');
+}
+	</script>
 {% endblock content %}
 
 

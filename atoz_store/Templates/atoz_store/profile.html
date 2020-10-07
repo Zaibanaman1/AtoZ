@@ -1,0 +1,16 @@
+{% extends 'atoz_store/main.html' %}
+{% load static %}
+{% block content %}
+<br>
+<br>
+<br>
+<div>
+<p>name:{{customer.name}}</p> 
+<h3>Bill</h3>
+ {% for a in arr %}
+ <p>{{a}}</p>
+ {% endfor %}
+ <p>----------</p>
+ <p><strong>Total:</strong>{{total}}</p>
+</div>
+{% endblock content%}
