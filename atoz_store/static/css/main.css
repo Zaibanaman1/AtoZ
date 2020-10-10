@@ -557,8 +557,8 @@ padding-bottom: 5px;
 .pricetag{
     width: 1cm;
     position: relative;
-    bottom: 1.55cm;
-    left: 2.8cm;
+    bottom: 1.75cm;
+    left: 4.5cm;
     font-size: 15px;
 }
 
@@ -566,7 +566,7 @@ padding-bottom: 5px;
     
     position: relative;
     bottom: 0cm;
-    left: -0.7cm;
+    left: 1cm;
     width: 2cm;
     font-size: 15px;
     padding-left: 1in;
@@ -574,15 +574,18 @@ padding-bottom: 5px;
 
 .offprice{
     position: relative;
-    left: 3.5cm;
-    width: 5cm;
+    width: 2cm;
+    top: 0.1cm;
+    left: 0.7cm;
     position: relative;
-    bottom: 0.8cm;
+    bottom: 0.7cm;
     font-size: 18px;
+    
     padding-left: 1in;
 }
 
 .rectangle{
+    margin-right: 0cm;
     text-align: center;
     font-size: 12px;
     position: relative;
@@ -600,6 +603,7 @@ padding-bottom: 5px;
 
 
 .cart-button {
+
     position: relative;
     border-radius: 5em;
 	background-color: #6b8e23;
@@ -608,6 +612,7 @@ padding-bottom: 5px;
 	width: 116px;
 	height: 40px;
     border: 0;
+    font-family: 'Ubuntu', sans-serif;
     font-size: 10px;
 	outline: none;
 	cursor: pointer;
