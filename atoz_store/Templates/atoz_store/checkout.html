@@ -5,6 +5,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <div id="mydiv">
      <div class="row">
@@ -90,6 +91,15 @@
 			<button id='make-payment' type="button" class="btn btn-success srcbtn">Proceed</button>
 		</form>
 		</div>
+		<center>
+			<script type="text/javascript"> //<![CDATA[
+				var tlJsHost = ((window.location.protocol == "https:") ? "https://secure.trust-provider.com/" : "http://www.trustlogo.com/");
+				document.write(unescape("%3Cscript src='" + tlJsHost + "trustlogo/javascript/trustlogo.js' type='text/javascript'%3E%3C/script%3E"));
+			  //]]></script>
+			  <script language="JavaScript" type="text/javascript">
+				TrustLogo("https://www.positivessl.com/images/seals/positivessl_trust_seal_md_167x42.png", "POSDV", "none");
+			  </script>
+		</center>
 		
 	</div>
 </div>
@@ -167,20 +177,28 @@
 			 .then((Response) => Response.json())
 			 .then((data) =>{
 			   console.log('success:',data);
-			   alert('transaction completed');
-			   
-			   cart = {}
-			   document.cookie = 'cart=' + JSON.stringify(cart) + ';domain=;PATH=/'
-			   window.location.href = "{% url 'store' %}"
-
 			 })
+			 var lifetime=250;
+			 var interval;
+			 interval=setInterval('swal',6000000000000);
+			 swal({
+                 title: "Good job!",
+                 text: "You clicked the button!",
+                 icon: "success",
+                 button: "Aww yiss!",
+			   });
+			   window.location.href = "{% url 'store' %}";
+			   cart = {}
+			   document.cookie = 'cart=' + JSON.stringify(cart) + ';domain=;PATH=/';
 			}
 			else{
-				alert("online paymetns are currently noy available")
+				swal("Sorry!!", "Online payments are currently not available", "info");
 				document.getElementById("mydiv").style.opacity="1.0";
 				document.getElementById('loader').classList.add('hidden')
 
 			}
+		
+			
 		}
 		</script>
 		<script type="text/javascript">
