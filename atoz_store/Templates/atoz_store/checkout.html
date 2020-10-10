@@ -178,16 +178,15 @@
 			 .then((data) =>{
 			   console.log('success:',data);
 			 })
-			 var lifetime=250;
-			 var interval;
-			 interval=setInterval('swal',6000000000000);
-			 swal({
-                 title: "Good job!",
-                 text: "You clicked the button!",
-                 icon: "success",
-                 button: "Aww yiss!",
-			   });
-			   window.location.href = "{% url 'store' %}";
+			 
+			 
+				swal("Order Placed", "we'll call you shortly", "success")
+				.then((value) => {
+					window.location.href = "{% url 'store' %}";	
+				});
+     
+		   
+		
 			   cart = {}
 			   document.cookie = 'cart=' + JSON.stringify(cart) + ';domain=;PATH=/';
 			}
