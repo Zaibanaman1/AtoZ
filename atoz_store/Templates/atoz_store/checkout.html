@@ -177,12 +177,10 @@
 			 .then((Response) => Response.json())
 			 .then((data) =>{
 			   console.log('success:',data);
-			   cart = {}
-			   document.cookie = 'cart=' + JSON.stringify(cart) + ';domain=;PATH=/';
 			 })
-			 var lifetime=25;
+			 var lifetime=250;
 			 var interval;
-			 interval=setInterval('swal',60000000);
+			 interval=setInterval('swal',6000000000000);
 			 swal({
                  title: "Good job!",
                  text: "You clicked the button!",
@@ -190,6 +188,8 @@
                  button: "Aww yiss!",
 			   });
 			   window.location.href = "{% url 'store' %}";
+			   cart = {}
+			   document.cookie = 'cart=' + JSON.stringify(cart) + ';domain=;PATH=/';
 			}
 			else{
 				swal("Sorry!!", "Online payments are currently not available", "info");
