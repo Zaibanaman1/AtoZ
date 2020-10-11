@@ -201,7 +201,7 @@ function updateUserOrder(productId,action){
         
         })
         $( "#number" ).load(window.location.href + " #number" );
-       
+        $( "#cart-total1" ).load(window.location.href + " #cart-total1" );
         
         
     

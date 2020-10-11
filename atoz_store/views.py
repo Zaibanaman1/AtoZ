@@ -329,7 +329,7 @@ def search(request):
                 return render(request,'atoz_store/search.html',{'sr':match,'products':products,'cartItems':cartItems})
 
 
-    return render(request ,'atoz_store/search.html')
+    return render(request ,'atoz_store/search.html',{'cartItems':cartItems})
     
 def profile(request):
     if request.user.is_authenticated:
