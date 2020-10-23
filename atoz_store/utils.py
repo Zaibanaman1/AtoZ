@@ -18,14 +18,20 @@ def cookieCart(request):
             cartitems += 1
             print(cartitems)
             product = Product.objects.get(id=i)
-            total = (product.price * Decimal(cart[i]['quantity']))
+            if product.offprice <= 0 :
+
+                total = (product.price * Decimal(cart[i]['quantity']))
+            else:
+                total = (product.offprice * Decimal(cart[i]['quantity']))
             order['get_cart_total'] +=  total
             order['get_cart_items'] +=  cartitems
             item ={
                 'product':{
                     'id':product.id,
                     'name':product.name,
+                    'prodtype':product.prodtype,
                     'price':product.price,
+                    'offprice':product.offprice,
                     'imageURL':product.imageURL,
                 },
                 'quantity': cart[i]['quantity'],

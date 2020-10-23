@@ -88,7 +88,10 @@ class OrderItem(models.Model):
 
     @property
     def get_total(self):
-        total = self.product.price*self.quantity
+        if self.product.offprice <= 0.00:
+            total = self.product.price*self.quantity
+        else:
+            total = self.product.offprice*self.quantity    
         return total
 
 
