@@ -51,7 +51,20 @@ h1,h2,h3,h4,h5,h6{
 	margin-left: 15px;
 }
 
+#number{
+    padding-left: 00.56cm;
+    position: relative;
+    right: 0.7cm;
+    bottom: -0.4cm;
+}
+
+
+
+
 #cart-total{
+    position: relative;
+    left: 1cm;
+    bottom: 1cm;
 	display: block;
 	text-align: center;
 	color:#fff;
