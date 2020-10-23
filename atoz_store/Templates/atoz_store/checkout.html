@@ -18,7 +18,7 @@
 				{% for item in items %}
 				<div class="chk cart-row">
 					<div ><p>{{item.product.name}}</p></div>
-					<div ><p>Rs{{item.product.price|floatformat:2}}</p></div>
+					<div ><p>{% if item.product.offprice %} {{item.product.offprice|floatformat:2}} {% else %} {{item.product.price|floatformat:2}} {% endif %}</p></div>
 					{% if item.product.prodtype %}
 					<div ><p>x{{item.quantity|floatformat:3}} Kg</p></div>
 					{% else %}
