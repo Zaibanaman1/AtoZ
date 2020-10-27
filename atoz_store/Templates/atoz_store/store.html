@@ -92,7 +92,15 @@
 
 			<div class="rectangle">   {{product.percent|floatformat:0}}%off</div>
 			{% endif %}
-			<img class="thumbnail" src="{{product.imageURL}}" alt="not found">
+			{% if product.stock %}
+			<img data-stock="{{product.stock}}" class="thumbnail" src="{{product.imageURL}}" alt="not found">
+			{% else %}
+			<div>
+			<img data-stock="{{product.stock}}" style="opacity: 0.4;" class="thumbnail" src="{{product.imageURL}}" alt="not found">
+
+			<p style="position: relative; top: -2.5cm; left: 3cm; font-weight: bolder; width: 5cm; color: #838585; font-size: 28px;">  Out of stock</p>
+		</div>
+			{% endif %}
 			<div  class="box-element product">
 
 				<h6><strong>{{product.name}}</strong></h6>

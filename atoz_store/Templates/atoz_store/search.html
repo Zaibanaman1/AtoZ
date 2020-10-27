@@ -50,7 +50,15 @@
 
 			<div class="rectangle">   {{k.percent|floatformat:0}}%off</div>
 			{% endif %}
-			<img class="thumbnail" src="{{k.imageURL}}" alt="not found">
+			{% if k.stock %}
+			<img data-stock="{{k.stock}}" class="thumbnail" src="{{k.imageURL}}" alt="not found">
+			{% else %}
+			<div>
+			<img data-stock="{{k.stock}}" style="opacity: 0.4;" class="thumbnail" src="{{k.imageURL}}" alt="not found">
+
+			<p style="position: relative; top: -2.5cm; left: 3cm; font-weight: bolder; width: 3cm; color: #8e9091; font-size: 20px;">  Out of stock</p>
+		</div>
+			{% endif %}
 			<div  class="box-element product">
 
 				<h6><strong>{{k.name}}</strong></h6>
