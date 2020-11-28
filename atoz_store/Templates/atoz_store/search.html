@@ -47,20 +47,35 @@
 		{% for k in sr %}	 
 		<div id="eachproduct"   class="col-lg-4">
 			{% if k.percent < 100 %}
+
 			<div class="rectangle">   {{k.percent|floatformat:0}}%off</div>
 			{% endif %}
-			<img class="thumbnail" src="{{k.imageURL}}" alt="not found">
+			{% if k.stock %}
+			<img data-stock="{{k.stock}}" class="thumbnail" src="{{k.imageURL}}" alt="not found">
+			{% else %}
+			<div>
+			<img data-stock="{{k.stock}}" style="opacity: 0.4;" class="thumbnail" src="{{k.imageURL}}" alt="not found">
+
+			<p style="position: relative; top: -2.5cm; left: 3cm; font-weight: bolder; width: 3cm; color: #8e9091; font-size: 20px;">  Out of stock</p>
+		</div>
+			{% endif %}
 			<div  class="box-element product">
 
 				<h6><strong>{{k.name}}</strong></h6>
-				<hr>
-				<button id="addToCart" data-product="{{k.id}}" data-action="add"  class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
-			
-				{% if k.offprice > 0 %}
-				<h4 class="pricetag" style="display: inline-block; "> <s> RS.{{ k.price|floatformat:2}} </s> </h4>
-				<h4 class="offprice" style="display: inline-block; "><strong>RS.{{ k.offprice|floatformat:2}}</strong>  {% if k.prodtype %} /kg {% else %} /peice {% endif %}</h4>
+				<hr class="hrr" >
+				<button id="addToCart" data-product="{{k.id}}"  data-flagu="{{k.prodtype}}" data-action="add"  class="btn btn-outline-secondary add-btn  cart-button">
+					<span class="add-to-cart"> <strong>Add to cart</strong></span>
+					<span class="added"><strong>added</strong>  </span>
+					
+					<i class="fas fa-shopping-cart"></i>
+					<i class="fas fa-box"></i>
+				</button>
+			 
+			    {% if k.offprice > 0 %}
+				<h4 class="pricetag" style="display: inline-block; "> <s> RS.{{ k.price|floatformat:0}} </s> </h4>
+				<h4 class="offprice" style="display: inline-block; "><strong>RS.{{ k.offprice|floatformat:0}}</strong>  {% if k.prodtype %} /kg {% else %} /peice {% endif %}</h4>
 				{% else %}
-				<h4 class="normprice" style="display: inline-block; ">  <strong>RS.{{ k.price|floatformat:2}} </strong>  {% if k.prodtype %} /kg {% else %} /peice {% endif %} </h4>
+				<h3 class="normprice" style="display: inline-block; ">  <strong>RS.{{ k.price|floatformat:0}}{% if k.prodtype %}/kg{% else %}/peice{% endif %} </strong>  </h3>
 			    {% endif %}
 			</div>
 		</div>
@@ -73,6 +88,21 @@
 		 
 		 
     </div>
-    
+	<script>
+		const cartButtons = document.querySelectorAll('.cart-button');
+cartButtons.forEach(button => {
+	button.addEventListener('click', cartClick);
+});
 
+function cartClick() {
+	let button = this;
+	button.classList.add('clicked');
+
+}
+	</script>
+<script>
+	if ( window.history.replaceState ) {
+	  window.history.replaceState( null, null, window.location.href );
+	}
+	</script>
 {% endblock content %}

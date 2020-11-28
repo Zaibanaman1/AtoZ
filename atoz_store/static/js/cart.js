@@ -1,8 +1,6 @@
 var updateBtns = document.getElementsByClassName('update-cart')
 var setstatus = document.getElementsByClassName('setstatus')
 var cartBtns = document.getElementsByClassName('cart-button')
-        
-    
 
 for(var i=0; i<updateBtns.length;i++){
     updateBtns[i].addEventListener('click',function(){
@@ -201,7 +199,7 @@ function updateUserOrder(productId,action){
         
         })
         $( "#number" ).load(window.location.href + " #number" );
-       
+        $( "#cart-total1" ).load(window.location.href + " #cart-total1" );
         
         
     

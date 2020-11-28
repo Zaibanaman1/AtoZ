@@ -76,7 +76,10 @@ def cart(request):
                
                 product = Product.objects.get(id=i)
                 Flag = product.prodtype
-                total = (product.price * Decimal(cart[i]['quantity']))
+                if product.offprice <= 0 :
+                    total = (product.price * Decimal(cart[i]['quantity']))
+                else:
+                    total = (product.offprice * Decimal(cart[i]['quantity']))    
                 order['get_cart_total'] +=  total
                 order['get_cart_items'] =cartitems    
                 item ={
@@ -84,6 +87,7 @@ def cart(request):
                         'id':product.id,
                         'name':product.name,
                         'price':product.price,
+                        'offprice':product.offprice,
                         'imageURL':product.imageURL,
                         'flag':Flag,
                         
@@ -252,7 +256,10 @@ def processOrder(request):
     productmname = []
     
     for item in items:
-        pack =str(item.product.name) + ":" + str(item.product.price) +"x"+str(item.quantity)
+        if item.product.offprice == 0.00:
+            pack =str(item.product.name) + ":" + str(item.product.price) +"x"+str(item.quantity)
+        else:
+            pack =str(item.product.name) + ":" + str(item.product.offprice) +"x"+str(item.quantity)    
         flag = item.product.prodtype
         if flag:
             pack = pack + 'kg'
@@ -329,7 +336,7 @@ def search(request):
                 return render(request,'atoz_store/search.html',{'sr':match,'products':products,'cartItems':cartItems})
 
 
-    return render(request ,'atoz_store/search.html')
+    return render(request ,'atoz_store/search.html',{'cartItems':cartItems})
     
 def profile(request):
     if request.user.is_authenticated:

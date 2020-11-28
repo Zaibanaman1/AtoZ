@@ -39,7 +39,7 @@
            
             <div class="cart-column">
                 <div  ><strong>Name:</strong><p>{{item.product.name}}</p></div>
-                <div class="pri"><strong>Price:</strong><p>Rs.{{item.product.price|floatformat:2}}</p></div>
+                <div class="pri"><strong>Price:</strong><p>Rs.{% if item.product.offprice %} {{item.product.offprice|floatformat:2}} {% else %} {{item.product.price|floatformat:2}} {% endif %} </p></div>
                 <div>
                     <div class="pri"><strong>Qty:</strong></div>
                     {% if request.user.is_authenticated %}
