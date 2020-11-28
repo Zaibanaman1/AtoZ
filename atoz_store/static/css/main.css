@@ -567,6 +567,14 @@ padding-bottom: 5px;
     display: none;
 }
 
+.hidden1{
+    visibility: hidden;
+}
+
+.qtyborder{
+ border-style: inset;   
+}
+
 .pricetag{
     width: 1cm;
     position: relative;

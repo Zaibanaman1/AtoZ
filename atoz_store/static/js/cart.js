@@ -111,7 +111,7 @@ function updateUserOrder(productId,action){
         var action = this.dataset.action
         var flagg =this.dataset.flagu
         var div = document.getElementById(''+ productId + '1')
-        div.classList.remove('hidden')
+        div.classList.remove('hidden1')
         
      
         console.log('productId:',productId,'action:',action)
@@ -203,7 +203,7 @@ function updateUserOrder(productId,action){
         .then((data) =>{
             console.log('data:', data)
             var idd = productId
-            var qty = data
+            var qty = parseFloat(data).toFixed(2)
             var place = document.getElementById('' + idd)
             place.innerHTML = qty
    

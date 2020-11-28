@@ -105,21 +105,23 @@
 
 				<h6><strong>{{product.name}}</strong></h6>
 				<hr class="hrr" >
-				<button id="addToCart" data-product="{{product.id}}"  data-flagu="{{product.prodtype}}" data-action="add"  class="btn btn-outline-secondary add-btn  cart-button">
+				<button  style="position: relative; left: -2cm; z-index: 3;" id="addToCart" data-product="{{product.id}}"  data-flagu="{{product.prodtype}}" data-action="add"  class="btn btn-outline-secondary add-btn  cart-button">
 					<span class="add-to-cart"> <strong>Add to cart</strong></span>
 					<span class="added"><strong>added</strong>  </span>
 					
 					<i class="fas fa-shopping-cart"></i>
 					<i class="fas fa-box"></i>
 				</button>
-			 <div  class="hidden" id="{{product.id}}1" style="width: 2cm; position: relative; left: 160px; top: -70px; ">
-				 <button data-product="{{product.id}}"  data-flagu="{{product.prodtype}}" data-action="add"  class="cart-button fa fa-plus" style="width:35px; left:-40px; bottom: -30px;"></button><p id="{{product.id}}"></p><button data-product="{{product.id}}"  data-flagu="{{product.prodtype}}" data-action="remove"  class=" cart-button fa fa-minus" style="width:35px; left: 40px; bottom: 50px;"></button>
+			 <div  class="hidden1" id="{{product.id}}1" style="width: 2cm; ; position: relative; left: 160px; top: -30px;  float: left; z-index: 3;">
+				 <button data-product="{{product.id}}"  data-flagu="{{product.prodtype}}" data-action="add"  class="cart-button fa fa-plus" style="width:35px; left:-40px; bottom: -30px;"></button><p class="qtyborder" style=" width: 0.9cm; text-align: center;" id="{{product.id}}">0</p><button data-product="{{product.id}}"  data-flagu="{{product.prodtype}}" data-action="remove"  class=" cart-button fa fa-minus" style="width:35px; left: 40px; bottom: 54px;"></button>
 			 </div>
-			    {% if product.offprice > 0 %}
+				{% if product.offprice > 0 %}
+				<div style="position: relative; left: 1cm; top: -1cm;  ">
 				<h4 class="pricetag" style="display: inline-block; "> <s> RS.{{ product.price|floatformat:0}} </s> </h4>
 				<h4 class="offprice" style="display: inline-block; "><strong>RS.{{ product.offprice|floatformat:0}}</strong>  {% if product.prodtype %} /kg {% else %} /peice {% endif %}</h4>
+			</div>
 				{% else %}
-				<h3 class="normprice" style="display: inline-block; ">  <strong>RS.{{ product.price|floatformat:0}}{% if product.prodtype %}/kg{% else %}/peice{% endif %} </strong>  </h3>
+				<h3 style="position: relative;left: 4.3cm; top: -0.7cm;" class="normprice" style="display: inline-block; ">  <strong>RS.{{ product.price|floatformat:0}}{% if product.prodtype %}/kg{% else %}/peice{% endif %} </strong>  </h3>
 			    {% endif %}
 			</div>
 		</div>
