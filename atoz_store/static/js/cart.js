@@ -110,7 +110,8 @@ function updateUserOrder(productId,action){
         var productId = this.dataset.product
         var action = this.dataset.action
         var flagg =this.dataset.flagu
-        
+        var div = document.getElementById(''+ productId + '1')
+        div.classList.remove('hidden')
         
      
         console.log('productId:',productId,'action:',action)

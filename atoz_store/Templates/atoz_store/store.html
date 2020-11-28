@@ -112,8 +112,8 @@
 					<i class="fas fa-shopping-cart"></i>
 					<i class="fas fa-box"></i>
 				</button>
-			 <div style="width: 2cm; position: relative; left: 160px; top: -70px; ">
-				 <button data-product="{{product.id}}"  data-flagu="{{product.prodtype}}" data-action="add"  class="cart-button fa fa-plus" style="width:35px; left:-40px; bottom: -30px;"></button><p id="{{product.id}}">x </p><button data-product="{{product.id}}"  data-flagu="{{product.prodtype}}" data-action="remove"  class=" cart-button fa fa-minus" style="width:35px; left: 40px; bottom: 50px;"></button>
+			 <div  class="hidden" id="{{product.id}}1" style="width: 2cm; position: relative; left: 160px; top: -70px; ">
+				 <button data-product="{{product.id}}"  data-flagu="{{product.prodtype}}" data-action="add"  class="cart-button fa fa-plus" style="width:35px; left:-40px; bottom: -30px;"></button><p id="{{product.id}}"></p><button data-product="{{product.id}}"  data-flagu="{{product.prodtype}}" data-action="remove"  class=" cart-button fa fa-minus" style="width:35px; left: 40px; bottom: 50px;"></button>
 			 </div>
 			    {% if product.offprice > 0 %}
 				<h4 class="pricetag" style="display: inline-block; "> <s> RS.{{ product.price|floatformat:0}} </s> </h4>
