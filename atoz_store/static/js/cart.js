@@ -111,6 +111,7 @@ function updateUserOrder(productId,action){
         var action = this.dataset.action
         var flagg =this.dataset.flagu
         
+        
      
         console.log('productId:',productId,'action:',action)
         console.log('USER:',user)
@@ -172,7 +173,11 @@ function updateUserOrder(productId,action){
         if(action == 'delete'){
             delete cart[productId]
         }
-    
+         var idd = productId
+         var qty = cart[productId]['quantity']
+         var place = document.getElementById('' + idd)
+         place.innerHTML = qty
+
         console.log('cart:',cart)
         document.cookie = 'cart=' + JSON.stringify(cart) + ';domain=;PATH=/'
         $( "#number" ).load(window.location.href + " #number" );
@@ -196,6 +201,11 @@ function updateUserOrder(productId,action){
     
         .then((data) =>{
             console.log('data:', data)
+            var idd = productId
+            var qty = data
+            var place = document.getElementById('' + idd)
+            place.innerHTML = qty
+   
         
         })
         $( "#number" ).load(window.location.href + " #number" );

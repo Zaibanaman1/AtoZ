@@ -157,7 +157,7 @@ def updateItem(request):
     if orderItem.quantity <= 0:
         orderItem.delete()
 
-    return JsonResponse(" ",safe=False)
+    return JsonResponse(orderItem.quantity,safe=False)
 
 def processOrder(request):
     ist = pytz.timezone("Asia/Calcutta")
