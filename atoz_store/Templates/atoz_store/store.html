@@ -113,7 +113,7 @@
 					<i class="fas fa-box"></i>
 				</button>
 			 <div  class="hidden1" id="{{product.id}}1" style="width: 2cm; ; position: relative; left: 160px; top: -30px;  float: left; z-index: 3;">
-				 <button data-product="{{product.id}}"  data-flagu="{{product.prodtype}}" data-action="add"  class="cart-button fa fa-plus" style="width:35px; left:-40px; bottom: -30px;"></button><p class="qtyborder" style=" width: 0.9cm; text-align: center;" id="{{product.id}}">0</p><button data-product="{{product.id}}"  data-flagu="{{product.prodtype}}" data-action="remove"  class=" cart-button fa fa-minus" style="width:35px; left: 40px; bottom: 54px;"></button>
+				 <button data-product="{{product.id}}"  data-flagu="{{product.prodtype}}" data-action="add"  class="cart-button fa fa-plus" style="width:35px; left:-40px; bottom: -30px;"></button><p class="qtyborder" style="  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; position: relative; width: 1.5cm; text-align: center; bottom: 5px;" ><span id="{{product.id}}" >0</span>{% if product.prodtype %}/kg{% else %}/pc{% endif %}</p><button data-product="{{product.id}}"  data-flagu="{{product.prodtype}}" data-action="remove"  class=" cart-button fa fa-minus" style="width:35px; left: 62px; bottom: 58px;"></button>
 			 </div>
 				{% if product.offprice > 0 %}
 				<div style="position: relative; left: 1cm; top: -1cm;  ">
