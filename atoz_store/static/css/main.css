@@ -162,8 +162,9 @@ h1,h2,h3,h4,h5,h6{
 }
 
 .chg-quantity{
-    width: 12px;
-    height: 8px;
+    width: 27px;
+    height: 25px;
+    border-radius: 2em;
 	cursor: pointer;
 	display: block;
 	margin-top: 2px;

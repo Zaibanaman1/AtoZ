@@ -1,7 +1,10 @@
 {% extends 'atoz_store/main.html' %}
 {% load static %}
 {% block content %}
-	<div class="row">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<div class="row">
 		<div class="col-lg-12">
             
 
@@ -65,9 +68,8 @@
                     {% if item.product.flag or item.product.prodtype %}
                         <p class="quantity"> <strong> {{item.quantity|floatformat:3}} kg</strong></p>
                         <div class="pri" class="quantity">
-                            <img data-product={{item.product.id}} data-flagu={{item.product.flag}} data-action="add" class="chg-quantity update-cart"  src="{% static  'images/arrow-up.png' %}">
-                    
-                            <img data-product={{item.product.id}} data-flagu={{item.product.flag}} data-action="remove" class="chg-quantity update-cart" src="{% static  'images/arrow-down.png' %}">
+                         <button data-product={{item.product.id}} data-flagu={{item.product.flag}} data-action="remove" class="chg-quantity update-cart fa fa-minus" style="background-color: red; color: white;"></button>
+                         <button data-product={{item.product.id}} data-flagu={{item.product.flag}} data-action="add" class="chg-quantity update-cart fa fa-plus" style=" background-color: green; color: white;" ></button>
                         </div>              
                     {% else %}
                     <p class="quantity"> <strong> {{item.quantity|floatformat:0}} pcs</strong></p>
