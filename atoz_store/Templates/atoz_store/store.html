@@ -90,7 +90,7 @@
 		<div id="eachproduct"   class="col-lg-4">
 			{% if product.percent < 100 %}
 
-			<div class="rectangle">   {{product.percent|floatformat:0}}%off</div>
+			<div class="rectangle" style="margin-top: -26px;">   {{product.percent|floatformat:0}}%off</div>
 			{% endif %}
 			{% if product.stock %}
 			<img data-stock="{{product.stock}}" class="thumbnail" src="{{product.imageURL}}" alt="not found">
