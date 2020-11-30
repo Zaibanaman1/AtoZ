@@ -1,8 +1,6 @@
 var updateBtns = document.getElementsByClassName('update-cart')
 var setstatus = document.getElementsByClassName('setstatus')
 var cartBtns = document.getElementsByClassName('cart-button')
-        
-    
 
 for(var i=0; i<updateBtns.length;i++){
     updateBtns[i].addEventListener('click',function(){
@@ -112,6 +110,8 @@ function updateUserOrder(productId,action){
         var productId = this.dataset.product
         var action = this.dataset.action
         var flagg =this.dataset.flagu
+        var div = document.getElementById(''+ productId + '1')
+        div.classList.remove('hidden1')
         
      
         console.log('productId:',productId,'action:',action)
@@ -174,7 +174,11 @@ function updateUserOrder(productId,action){
         if(action == 'delete'){
             delete cart[productId]
         }
-    
+         var idd = productId
+         var qty = cart[productId]['quantity']
+         var place = document.getElementById('' + idd)
+         place.innerHTML = qty
+
         console.log('cart:',cart)
         document.cookie = 'cart=' + JSON.stringify(cart) + ';domain=;PATH=/'
         $( "#number" ).load(window.location.href + " #number" );
@@ -198,6 +202,11 @@ function updateUserOrder(productId,action){
     
         .then((data) =>{
             console.log('data:', data)
+            var idd = productId
+            var qty = parseFloat(data).toFixed(2)
+            var place = document.getElementById('' + idd)
+            place.innerHTML = qty
+   
         
         })
         $( "#number" ).load(window.location.href + " #number" );
