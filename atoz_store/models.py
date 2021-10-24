@@ -13,7 +13,17 @@ class Customer(models.Model):
     def __str__(self):
         return self.name
 
+class Category(models.Model):
+    name = models.CharField(max_length=128,null=True,)
+    img =  models.FileField(null=True,blank=True)
 
+    @property
+    def imageURL(self):
+        try:
+            url = self.img.url
+        except:
+            url = ''
+        return url
 
 class Product(models.Model):
     catagory_choice = (
@@ -24,12 +34,12 @@ class Product(models.Model):
           ("seafood","seafood"),
         ("other","other"),   
          )
+    cate = models.ForeignKey(Category,on_delete=models.SET_NULL,blank=True,null=True)
     discription = models.CharField(max_length=500,null=True)
     mini_desc = models.CharField(max_length=40,null=True,)
-    
     alias =  models.CharField(max_length=30,default="null",null=True)
     name = models.CharField(max_length=128,null=True,)
-    catagory = models.CharField(max_length=30,choices= catagory_choice ,null=True)
+    catagory = models.CharField(max_length=30,choices=catagory_choice ,null=True)
     price = models.DecimalField(max_digits=7, decimal_places=2)
     offprice = models.DecimalField(max_digits=7, decimal_places=2,null = True)
     image = models.ImageField(null=True,blank=True)

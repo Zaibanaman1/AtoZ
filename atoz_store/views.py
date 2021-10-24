@@ -39,9 +39,9 @@ def store(request):
             try:
                 cartItems += 1
             except:pass    
-    
+    categories = Category.objects.all() 
     products = Product.objects.all()
-    context = {'products':products,'cartItems':cartItems}
+    context = {'products':products,'cartItems':cartItems,'categories':categories}
     return render(request ,'atoz_store/store.html',context)
 
 
@@ -397,7 +397,12 @@ def view(request):
         productid = request.POST['pro']
         product = Product.objects.filter(id=productid)
         print(product)
-
-        
+     
     return render(request,'atoz_store/view.html',{"product":product})
-    
+
+def category(request,key):
+
+    products = Product.objects.filter(cate__name=key)
+    print(products)
+
+    return render(request,'atoz_store/search.html',{"sr":products})

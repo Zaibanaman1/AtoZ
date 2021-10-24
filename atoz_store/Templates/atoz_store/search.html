@@ -47,7 +47,6 @@
 		{% for k in sr %}	 
 		<div id="eachproduct"   class="col-lg-4">
 			{% if k.percent < 100 %}
-
 			<div class="rectangle">   {{k.percent|floatformat:0}}%off</div>
 			{% endif %}
 			{% if k.stock %}
